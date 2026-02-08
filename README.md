@@ -1,22 +1,32 @@
 # AAPS Garmin Combined Widget
 
-This is a combined Garmin Connect IQ widget that merges the three separate AAPS widgets into a single app:
+A combined Garmin Connect IQ widget that merges three separate AAPS control widgets and a glucose monitoring display into a single app.
 
-- **Bolus** — Administer boluses to AAPS
-- **Carbs** — Enter carbohydrates to AAPS
-- **TempTarget** — Set temporary targets in AAPS
+## Credits
+
+**All credit goes to [swissalpine](https://github.com/swissalpine)**, who created the original AAPS Garmin widgets and the Garmin plugin for AAPS. This combined widget is built entirely on top of his work:
+
+- [AAPS-Garmin-BolusWidget](https://github.com/swissalpine/AAPS-Garmin-BolusWidget)
+- [AAPS-Garmin-CarbsWidget](https://github.com/swissalpine/AAPS-Garmin-CarbsWidget)
+- [AAPS-Garmin-TempTargetWidget](https://github.com/swissalpine/AAPS-Garmin-TempTargetWidget)
+
+## Features
+
+- **Bolus** — Administer insulin boluses to AAPS (preset values or custom with ±0.1 U increments)
+- **Carbs** — Enter carbohydrates to AAPS (preset values or custom with ±1 g increments)
+- **TempTarget** — Set temporary targets in AAPS in mmol/l (preset values or custom with ±0.1 mmol/l and ±5 min increments)
 
 ## How it works
 
-1. Open the widget on your Garmin watch
-2. Press SELECT to open the main menu
-3. Choose your action: **Bolus**, **Carbs**, or **TempTarget**
-4. Select your desired value from the sub-menu
-5. Confirm by pressing SELECT to send to AAPS
+1. Open the widget — glucose data is displayed immediately
+2. Press SELECT to open the action menu (Bolus / Carbs / TempTarget)
+3. Choose a preset value or select "Custom value..." to dial in your own
+4. Review the confirmation screen (glucose data visible at the top)
+5. Press SELECT to send to AAPS
 
 ## Configuration
 
-Edit `source/settings.mc` to configure the URLs for each endpoint:
+Edit `source/settings.mc` to configure the endpoint URLs:
 
 ```
 var bolusUrl = "http://127.0.0.1:28891/bolus";
@@ -24,9 +34,11 @@ var carbsUrl = "http://127.0.0.1:28891/carbs";
 var tempTargetUrl = "http://127.0.0.1:28891/temptarget";
 ```
 
+Glucose data is fetched from `http://127.0.0.1:28891/get` (the standard AAPS Garmin plugin endpoint).
+
 ## Prerequisites
 
-The necessary adjustments in AAPS are currently not available in either the dev or master versions. They are only available in the modified AAPS version.
+The necessary adjustments in AAPS are currently not available in either the dev or master versions. They are only available in the modified AAPS version by swissalpine.
 At your own risk, you must copy the Garmin plugin folders and paste them into your own version:
 
 Version 3.3.2:
@@ -41,4 +53,6 @@ Version 3.3.3:
 
 Build with Visual Studio Code and the Monkey C extension. Install on the watch via sideloading.
 
-**Once again: Just because it works for me, I cannot guarantee that it will work for you. If in doubt, it's better to leave this!**
+## Disclaimer
+
+**This software is provided as-is. Just because it works for one person does not guarantee it will work for you. Use at your own risk. If in doubt, don't use it.**
