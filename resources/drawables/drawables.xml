@@ -1,0 +1,6 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="BolusIcon" filename="syringe-30.png" />
+    <bitmap id="CarbsIcon" filename="carbs_icon.png" />
+    <bitmap id="TempTargetIcon" filename="temptarget_icon.png" />
+</drawables>
