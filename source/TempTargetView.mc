@@ -8,7 +8,7 @@ using Toybox.Lang;
 // UNIT CONFIGURATION — change USE_MMOL only
 // true  = mmol/L  |  false = mg/dL
 // =========================================================
-const USE_MMOL       = true;
+const USE_MMOL       = false;
 
 const TT_UNIT_LABEL  = USE_MMOL ? " mmol/l"         : " mg/dl";
 const TT_FIELD_LABEL = USE_MMOL ? "Target (mmol/l)" : "Target (mg/dl)";

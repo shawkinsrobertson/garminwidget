@@ -1,0 +1,81 @@
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Application,1,14,25]; ]
+import Toybox.Application;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [WatchUi,3,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 5; @symbol_classdef = [CombinedWidgetApp,5,6,23]; @symbol_extends<0> = [Application,5,32,43]; @symbol_extends<1> = [AppBase,5,44,51]; ]
+class CombinedWidgetApp extends Application.AppBase {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 7; @symbol_functiondef = [initialize,7,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_7_26_9_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc" 8 8 ]
+        symbol [ AppBase %tmp.2 8 8 15 ];
+        %tmp.2 = getv ? :AppBase;
+        symbol [ initialize %tmp.3 8 16 26 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_7_26_9_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 11; @symbol_functiondef = [onStart,11,13,20]; @symbol_param<0> = [state,11,21,26]; @symbol_param<0>_type<0> = [Dictionary,11,30,40]; ]
+    function onStart(state as Dictionary or Null) as Void {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 14; @symbol_functiondef = [onStop,14,13,19]; @symbol_param<0> = [state,14,20,25]; @symbol_param<0>_type<0> = [Dictionary,14,29,39]; ]
+    function onStop(state as Dictionary or Null) as Void {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 18; @symbol_functiondef = [getInitialView,18,13,27]; ]
+    function getInitialView() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_18_30_20_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc" 19 8 ]
+        %tmp.1 = newa 2;
+        symbol [ MainMenuView %tmp.5 19 21 33 ];
+        %tmp.5 = getv ? :MainMenuView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        symbol [ MainMenuDelegate %tmp.11 19 41 57 ];
+        %tmp.11 = getv ? :MainMenuDelegate;
+        %tmp.8 = newc %tmp.11 ();
+        %tmp.12 = dup %tmp.7;
+        %tmp.13 = aputv %tmp.12 1 %tmp.8;
+        ret %tmp.13;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_18_30_20_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 23; glance = true; @symbol_functiondef = [getGlanceView,23,13,26]; ]
+    function getGlanceView() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_23_29_25_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc" 24 8 ]
+        %tmp.1 = newa 1;
+        symbol [ CombinedGlanceView %tmp.5 24 21 39 ];
+        %tmp.5 = getv ? :CombinedGlanceView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        ret %tmp.7;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_23_29_25_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 29; @symbol_functiondef = [getApp,29,9,15]; @symbol_return<0> = [CombinedWidgetApp,29,21,38]; ]
+function getApp() as CombinedWidgetApp {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_29_39_31_0_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc" 30 4 ]
+    symbol [ Application %tmp.1 30 11 22 ];
+    %tmp.1 = getm $.Toybox.Application;
+    symbol [ getApp %tmp.2 30 23 29 ];
+    %tmp.2 = getv function %tmp.1 :getApp;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    %tmp.4 = as %tmp.3 CombinedWidgetApp;
+    symbol [ CombinedWidgetApp %tmp.4 30 35 52 ];
+    ret %tmp.4;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_CombinedWidgetApp_mc_29_39_31_0_stop:
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/CombinedWidgetApp.mc"; @line = 1; ]
+<init> {
+}
