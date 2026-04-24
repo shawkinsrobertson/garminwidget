@@ -6,12 +6,12 @@ using Toybox.Lang;
 
 // =========================================================
 // UNIT CONFIGURATION
-// Set UNIT_SYSTEM to either "mmol" or "mg"
+// Set USE_MMOL to 1 for mmol/l, 0 for mg/dl
 // =========================================================
 
-#define UNIT_SYSTEM "mg"  // Change to "mmol" to switch units
+#define USE_MMOL 0  // Change to 1 for mmol, 0 for mg/dl
 
-#if UNIT_SYSTEM.equals("mmol")
+#if USE_MMOL
   const TT_UNIT_LABEL  = " mmol/l";
   const TT_FIELD_LABEL = "Target (mmol/l)";
   const TT_FORMAT      = "%.1f";
