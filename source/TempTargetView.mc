@@ -5,23 +5,37 @@ using Toybox.Communications as Comm;
 using Toybox.Lang;
 
 // =========================================================
-// UNIT CONFIGURATION — change USE_MMOL only
-// true  = mmol/L  |  false = mg/dL
+// UNIT CONFIGURATION
+// Uncomment ONE block below; keep the other commented out.
 // =========================================================
-const USE_MMOL       = true;
 
-const TT_UNIT_LABEL  = USE_MMOL ? " mmol/l"         : " mg/dl";
-const TT_FIELD_LABEL = USE_MMOL ? "Target (mmol/l)" : "Target (mg/dl)";
-const TT_FORMAT      = USE_MMOL ? "%.1f"            : "%.0f";
-const TT_ROUND       = USE_MMOL ? 10.0              : 1.0;
-const TT_DEFAULT     = USE_MMOL ? 5.5               : 100.0;
-const TT_MIN         = USE_MMOL ? 2.0               : 36.0;
-const TT_MAX         = USE_MMOL ? 15.0              : 270.0;
-const TT_STEP        = USE_MMOL ? 0.1               : 1.0;
-const TT_P1          = USE_MMOL ? 4.4               : 80.0;
-const TT_P2          = USE_MMOL ? 6.7               : 120.0;
-const TT_P3          = USE_MMOL ? 7.8               : 140.0;
-const TT_P4          = USE_MMOL ? 8.9               : 160.0;
+// --- mmol/L ---
+const TT_UNIT_LABEL  = " mmol/l";
+const TT_FIELD_LABEL = "Target (mmol/l)";
+const TT_FORMAT      = "%.1f";
+const TT_ROUND       = 10.0;
+const TT_DEFAULT     = 5.5;
+const TT_MIN         = 2.0;
+const TT_MAX         = 15.0;
+const TT_STEP        = 0.1;
+const TT_P1          = 4.4;
+const TT_P2          = 6.7;
+const TT_P3          = 7.8;
+const TT_P4          = 8.9;
+
+// --- mg/dL --- (uncomment this block and comment out the block above)
+// const TT_UNIT_LABEL  = " mg/dl";
+// const TT_FIELD_LABEL = "Target (mg/dl)";
+// const TT_FORMAT      = "%.0f";
+// const TT_ROUND       = 1.0;
+// const TT_DEFAULT     = 100.0;
+// const TT_MIN         = 36.0;
+// const TT_MAX         = 270.0;
+// const TT_STEP        = 1.0;
+// const TT_P1          = 80.0;
+// const TT_P2          = 120.0;
+// const TT_P3          = 140.0;
+// const TT_P4          = 160.0;
 
 var ttDuration = 0;
 var ttTarget = 0;
