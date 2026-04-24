@@ -1,0 +1,9 @@
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/settings.mc"; @line = 2; @position = 8; @symbol_vardef = [bolusUrl,2,8,16]; ]
+var bolusUrl = "http://127.0.0.1:28891/bolus";
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/settings.mc"; @line = 3; @position = 8; @symbol_vardef = [carbsUrl,3,8,16]; ]
+var carbsUrl = "http://127.0.0.1:28891/carbs";
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/settings.mc"; @line = 4; @position = 8; @symbol_vardef = [tempTargetUrl,4,8,21]; ]
+var tempTargetUrl = "http://127.0.0.1:28891/temptarget";
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/settings.mc"; @line = 2; ]
+<init> {
+}

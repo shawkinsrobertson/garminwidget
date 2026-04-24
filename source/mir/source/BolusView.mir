@@ -1,0 +1,1907 @@
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Graphics,1,13,21]; @symbol_usingAlias = [Gfx,1,25,28]; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [WatchUi,2,13,20]; @symbol_usingAlias = [Ui,2,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; @symbol_usingAlias = [Sys,3,23,26]; ]
+using Toybox.System as :Sys;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Communications,4,13,27]; @symbol_usingAlias = [Comm,4,31,35]; ]
+using Toybox.Communications as :Comm;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Lang,5,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 7; @position = 4; @symbol_vardef = [bolusValue,7,4,14]; ]
+var bolusValue = 0.0;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 8; @position = 4; @symbol_vardef = [bolusError,8,4,14]; ]
+var bolusError = null;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 9; @position = 4; @symbol_vardef = [bolusAbfrage,9,4,16]; ]
+var bolusAbfrage = 1;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 10; @position = 4; @symbol_vardef = [bolusCircle,10,4,15]; ]
+var bolusCircle;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 11; @position = 4; @symbol_vardef = [bolusErrorCircle,11,4,20]; ]
+var bolusErrorCircle = false;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 12; @position = 4; @symbol_vardef = [bolusCustom,12,4,15]; ]
+var bolusCustom = 0.0;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 13; @position = 4; @symbol_vardef = [bolusOpenCustom,13,4,19]; ]
+var bolusOpenCustom = false;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 15; @symbol_classdef = [BolusBehaviorDelegate,15,6,27]; @symbol_extends<0> = [Ui,15,36,38]; @symbol_extends<1> = [BehaviorDelegate,15,39,55]; ]
+class BolusBehaviorDelegate extends Ui.BehaviorDelegate {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 15; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 15; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 17; @symbol_functiondef = [initialize,17,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_17_26_25_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 18 8 ]
+        symbol [ BehaviorDelegate %tmp.2 18 8 24 ];
+        %tmp.2 = getv ? :BehaviorDelegate;
+        symbol [ initialize %tmp.3 18 25 35 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 19 8 ]
+        symbol [ Gfx %tmp.4 19 22 25 ];
+        %tmp.4 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.5 19 26 37 ];
+        %tmp.5 = getv %tmp.4 :COLOR_BLACK;
+        symbol [ bolusCircle ? 19 8 19 ];
+        putv self :bolusCircle %tmp.5;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 20 8 ]
+        %tmp.6 = 1;
+        symbol [ bolusAbfrage ? 20 8 20 ];
+        putv self :bolusAbfrage %tmp.6;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 21 8 ]
+        %tmp.7 = 0.0;
+        symbol [ bolusValue ? 21 8 18 ];
+        putv self :bolusValue %tmp.7;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 22 8 ]
+        %tmp.8 = null;
+        symbol [ bolusError ? 22 8 18 ];
+        putv self :bolusError %tmp.8;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 23 8 ]
+        %tmp.9 = false;
+        symbol [ bolusErrorCircle ? 23 8 24 ];
+        putv self :bolusErrorCircle %tmp.9;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 24 8 ]
+        %tmp.10 = false;
+        symbol [ bolusOpenCustom ? 24 8 23 ];
+        putv self :bolusOpenCustom %tmp.10;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_17_26_25_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 27; @symbol_functiondef = [onKey,27,13,18]; @symbol_param<0> = [keyEvent,27,19,27]; ]
+    function onKey(keyEvent) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_27_29_46_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 28 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_8_44_8_if_stmt:
+        %tmp.1 = lgetv %keyEvent;
+        symbol [ keyEvent %tmp.1 28 12 20 ];
+        symbol [ getKey %tmp.2 28 21 27 ];
+        %tmp.2 = getv function %tmp.1 :getKey;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = 4;
+        %tmp.5 = eq %tmp.3 %tmp.4;
+        bf %tmp.5 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_8_44_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_8_44_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_37_44_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 29 12 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_stmt:
+        symbol [ bolusAbfrage %tmp.7 29 16 28 ];
+        %tmp.7 = getv ? :bolusAbfrage;
+        %tmp.8 = 1;
+        %tmp.9 = eq %tmp.7 %tmp.8;
+        bf %tmp.9 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_36_31_12_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 30 16 ]
+        %tmp.10 = self;
+        symbol [ showBolusMenu %tmp.11 30 16 29 ];
+        %tmp.11 = getv function %tmp.10 :showBolusMenu;
+        invoke %tmp.10 %tmp.11();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_36_31_12_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 31 19 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_stmt:
+        symbol [ bolusAbfrage %tmp.13 31 23 35 ];
+        %tmp.13 = getv ? :bolusAbfrage;
+        %tmp.14 = 2;
+        %tmp.15 = eq %tmp.13 %tmp.14;
+        bf %tmp.15 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_43_34_12_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 32 16 ]
+        %tmp.16 = self;
+        symbol [ sendBolus %tmp.17 32 16 25 ];
+        %tmp.17 = getv function %tmp.16 :sendBolus;
+        invoke %tmp.16 %tmp.17();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 33 16 ]
+        %tmp.18 = "Contacting\nAAPS...";
+        symbol [ bolusError ? 33 16 26 ];
+        putv self :bolusError %tmp.18;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_43_34_12_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 34 19 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_stmt:
+        symbol [ bolusAbfrage %tmp.20 34 24 36 ];
+        %tmp.20 = getv ? :bolusAbfrage;
+        %tmp.21 = 3;
+        %tmp.22 = eq %tmp.20 %tmp.21;
+        bf %tmp.22 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_else_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_44_36_12_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 35 16 ]
+        %tmp.23 = "Waiting for\nAAPS...";
+        symbol [ bolusError ? 35 16 26 ];
+        putv self :bolusError %tmp.23;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_44_36_12_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_else_false:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_36_19_41_12_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 37 16 ]
+        %tmp.24 = "Click SELECT to start!";
+        symbol [ bolusError ? 37 16 26 ];
+        putv self :bolusError %tmp.24;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 38 16 ]
+        %tmp.25 = 1;
+        symbol [ bolusAbfrage ? 38 16 28 ];
+        putv self :bolusAbfrage %tmp.25;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 39 16 ]
+        %tmp.26 = 0.0;
+        symbol [ bolusValue ? 39 16 26 ];
+        putv self :bolusValue %tmp.26;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 40 16 ]
+        symbol [ Gfx %tmp.27 40 30 33 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.28 40 34 45 ];
+        %tmp.28 = getv %tmp.27 :COLOR_BLACK;
+        symbol [ bolusCircle ? 40 16 27 ];
+        putv self :bolusCircle %tmp.28;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_36_19_41_12_stop:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_34_19_41_12_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_31_19_41_12_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_29_12_41_12_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 42 12 ]
+        symbol [ Ui %tmp.29 42 12 14 ];
+        %tmp.29 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.30 42 15 28 ];
+        %tmp.30 = getv function %tmp.29 :requestUpdate;
+        invoke %tmp.29 %tmp.30();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 43 12 ]
+        %tmp.31 = true;
+        ret %tmp.31;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_37_44_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_8_44_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_28_8_44_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 45 8 ]
+        %tmp.32 = false;
+        ret %tmp.32;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_27_29_46_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 48; @symbol_functiondef = [onHold,48,13,19]; @symbol_param<0> = [touchEvent,48,20,30]; ]
+    function onHold(touchEvent) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_48_32_64_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 49 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_stmt:
+        symbol [ bolusAbfrage %tmp.2 49 12 24 ];
+        %tmp.2 = getv ? :bolusAbfrage;
+        %tmp.3 = 1;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_32_51_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 50 12 ]
+        %tmp.5 = self;
+        symbol [ showBolusMenu %tmp.6 50 12 25 ];
+        %tmp.6 = getv function %tmp.5 :showBolusMenu;
+        invoke %tmp.5 %tmp.6();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_32_51_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 51 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_stmt:
+        symbol [ bolusAbfrage %tmp.8 51 19 31 ];
+        %tmp.8 = getv ? :bolusAbfrage;
+        %tmp.9 = 2;
+        %tmp.10 = eq %tmp.8 %tmp.9;
+        bf %tmp.10 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_39_54_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 52 12 ]
+        %tmp.11 = self;
+        symbol [ sendBolus %tmp.12 52 12 21 ];
+        %tmp.12 = getv function %tmp.11 :sendBolus;
+        invoke %tmp.11 %tmp.12();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 53 12 ]
+        %tmp.13 = "Contacting\nAAPS...";
+        symbol [ bolusError ? 53 12 22 ];
+        putv self :bolusError %tmp.13;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_39_54_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 54 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_stmt:
+        symbol [ bolusAbfrage %tmp.15 54 20 32 ];
+        %tmp.15 = getv ? :bolusAbfrage;
+        %tmp.16 = 3;
+        %tmp.17 = eq %tmp.15 %tmp.16;
+        bf %tmp.17 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_else_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_40_56_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 55 12 ]
+        %tmp.18 = "Waiting for\nAAPS...";
+        symbol [ bolusError ? 55 12 22 ];
+        putv self :bolusError %tmp.18;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_40_56_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_else_false:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_56_15_61_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 57 12 ]
+        %tmp.19 = "Click SELECT to start!";
+        symbol [ bolusError ? 57 12 22 ];
+        putv self :bolusError %tmp.19;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 58 12 ]
+        %tmp.20 = 1;
+        symbol [ bolusAbfrage ? 58 12 24 ];
+        putv self :bolusAbfrage %tmp.20;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 59 12 ]
+        %tmp.21 = 0.0;
+        symbol [ bolusValue ? 59 12 22 ];
+        putv self :bolusValue %tmp.21;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 60 12 ]
+        symbol [ Gfx %tmp.22 60 26 29 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.23 60 30 41 ];
+        %tmp.23 = getv %tmp.22 :COLOR_BLACK;
+        symbol [ bolusCircle ? 60 12 23 ];
+        putv self :bolusCircle %tmp.23;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_56_15_61_8_stop:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_54_15_61_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_51_15_61_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_49_8_61_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 62 8 ]
+        symbol [ Ui %tmp.24 62 8 10 ];
+        %tmp.24 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.25 62 11 24 ];
+        %tmp.25 = getv function %tmp.24 :requestUpdate;
+        invoke %tmp.24 %tmp.25();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 63 8 ]
+        %tmp.26 = true;
+        ret %tmp.26;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_48_32_64_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 66; @symbol_functiondef = [showBolusMenu,66,13,26]; ]
+    function showBolusMenu() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_66_29_86_5_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 67 8 ]
+        %tmp.1 = 2;
+        symbol [ bolusAbfrage ? 67 8 20 ];
+        putv self :bolusAbfrage %tmp.1;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 68 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_66_29_86_5_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_66_29_86_5_stop" ]
+        %menu.1 = local;
+        symbol [ menu %menu.1 68 12 16 ];
+        symbol [ Ui %tmp.4 68 23 25 ];
+        %tmp.4 = getm $.Toybox.WatchUi;
+        symbol [ Menu %tmp.5 68 26 30 ];
+        %tmp.5 = getv function ? %tmp.4 :Menu;
+        %tmp.2 = newc %tmp.5 ();
+        lputv %menu.1 %tmp.2;
+        symbol [ menu %menu.1 68 12 16 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 69 8 ]
+        %tmp.6 = lgetv %menu.1;
+        symbol [ menu %tmp.6 69 8 12 ];
+        symbol [ setTitle %tmp.7 69 13 21 ];
+        %tmp.7 = getv function %tmp.6 :setTitle;
+        %tmp.8 = "Choose Bolus";
+        invoke %tmp.6 %tmp.7(%tmp.8);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 70 8 ]
+        %tmp.9 = lgetv %menu.1;
+        symbol [ menu %tmp.9 70 8 12 ];
+        symbol [ addItem %tmp.10 70 13 20 ];
+        %tmp.10 = getv function %tmp.9 :addItem;
+        %tmp.11 = "Custom value...";
+        %tmp.13 = const :custom;
+        symbol [ custom %tmp.13 70 41 47 const ];
+        invoke %tmp.9 %tmp.10(%tmp.11, %tmp.13);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 71 8 ]
+        %tmp.14 = lgetv %menu.1;
+        symbol [ menu %tmp.14 71 8 12 ];
+        symbol [ addItem %tmp.15 71 13 20 ];
+        %tmp.15 = getv function %tmp.14 :addItem;
+        %tmp.16 = "0.2 U";
+        %tmp.18 = const :a;
+        symbol [ a %tmp.18 71 31 32 const ];
+        invoke %tmp.14 %tmp.15(%tmp.16, %tmp.18);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 72 8 ]
+        %tmp.19 = lgetv %menu.1;
+        symbol [ menu %tmp.19 72 8 12 ];
+        symbol [ addItem %tmp.20 72 13 20 ];
+        %tmp.20 = getv function %tmp.19 :addItem;
+        %tmp.21 = "0.5 U";
+        %tmp.23 = const :b;
+        symbol [ b %tmp.23 72 31 32 const ];
+        invoke %tmp.19 %tmp.20(%tmp.21, %tmp.23);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 73 8 ]
+        %tmp.24 = lgetv %menu.1;
+        symbol [ menu %tmp.24 73 8 12 ];
+        symbol [ addItem %tmp.25 73 13 20 ];
+        %tmp.25 = getv function %tmp.24 :addItem;
+        %tmp.26 = "1.0 U";
+        %tmp.28 = const :c;
+        symbol [ c %tmp.28 73 31 32 const ];
+        invoke %tmp.24 %tmp.25(%tmp.26, %tmp.28);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 74 8 ]
+        %tmp.29 = lgetv %menu.1;
+        symbol [ menu %tmp.29 74 8 12 ];
+        symbol [ addItem %tmp.30 74 13 20 ];
+        %tmp.30 = getv function %tmp.29 :addItem;
+        %tmp.31 = "1.5 U";
+        %tmp.33 = const :d;
+        symbol [ d %tmp.33 74 31 32 const ];
+        invoke %tmp.29 %tmp.30(%tmp.31, %tmp.33);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 75 8 ]
+        %tmp.34 = lgetv %menu.1;
+        symbol [ menu %tmp.34 75 8 12 ];
+        symbol [ addItem %tmp.35 75 13 20 ];
+        %tmp.35 = getv function %tmp.34 :addItem;
+        %tmp.36 = "2.0 U";
+        %tmp.38 = const :e;
+        symbol [ e %tmp.38 75 31 32 const ];
+        invoke %tmp.34 %tmp.35(%tmp.36, %tmp.38);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 76 8 ]
+        %tmp.39 = lgetv %menu.1;
+        symbol [ menu %tmp.39 76 8 12 ];
+        symbol [ addItem %tmp.40 76 13 20 ];
+        %tmp.40 = getv function %tmp.39 :addItem;
+        %tmp.41 = "2.5 U";
+        %tmp.43 = const :f;
+        symbol [ f %tmp.43 76 31 32 const ];
+        invoke %tmp.39 %tmp.40(%tmp.41, %tmp.43);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 77 8 ]
+        %tmp.44 = lgetv %menu.1;
+        symbol [ menu %tmp.44 77 8 12 ];
+        symbol [ addItem %tmp.45 77 13 20 ];
+        %tmp.45 = getv function %tmp.44 :addItem;
+        %tmp.46 = "3.0 U";
+        %tmp.48 = const :g;
+        symbol [ g %tmp.48 77 31 32 const ];
+        invoke %tmp.44 %tmp.45(%tmp.46, %tmp.48);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 78 8 ]
+        %tmp.49 = lgetv %menu.1;
+        symbol [ menu %tmp.49 78 8 12 ];
+        symbol [ addItem %tmp.50 78 13 20 ];
+        %tmp.50 = getv function %tmp.49 :addItem;
+        %tmp.51 = "3.5 U";
+        %tmp.53 = const :h;
+        symbol [ h %tmp.53 78 31 32 const ];
+        invoke %tmp.49 %tmp.50(%tmp.51, %tmp.53);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 79 8 ]
+        %tmp.54 = lgetv %menu.1;
+        symbol [ menu %tmp.54 79 8 12 ];
+        symbol [ addItem %tmp.55 79 13 20 ];
+        %tmp.55 = getv function %tmp.54 :addItem;
+        %tmp.56 = "4.0 U";
+        %tmp.58 = const :i;
+        symbol [ i %tmp.58 79 31 32 const ];
+        invoke %tmp.54 %tmp.55(%tmp.56, %tmp.58);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 80 8 ]
+        %tmp.59 = lgetv %menu.1;
+        symbol [ menu %tmp.59 80 8 12 ];
+        symbol [ addItem %tmp.60 80 13 20 ];
+        %tmp.60 = getv function %tmp.59 :addItem;
+        %tmp.61 = "4.5 U";
+        %tmp.63 = const :j;
+        symbol [ j %tmp.63 80 31 32 const ];
+        invoke %tmp.59 %tmp.60(%tmp.61, %tmp.63);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 81 8 ]
+        %tmp.64 = lgetv %menu.1;
+        symbol [ menu %tmp.64 81 8 12 ];
+        symbol [ addItem %tmp.65 81 13 20 ];
+        %tmp.65 = getv function %tmp.64 :addItem;
+        %tmp.66 = "5.0 U";
+        %tmp.68 = const :k;
+        symbol [ k %tmp.68 81 31 32 const ];
+        invoke %tmp.64 %tmp.65(%tmp.66, %tmp.68);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 82 8 ]
+        %tmp.69 = lgetv %menu.1;
+        symbol [ menu %tmp.69 82 8 12 ];
+        symbol [ addItem %tmp.70 82 13 20 ];
+        %tmp.70 = getv function %tmp.69 :addItem;
+        %tmp.71 = "6.0 U";
+        %tmp.73 = const :l;
+        symbol [ l %tmp.73 82 31 32 const ];
+        invoke %tmp.69 %tmp.70(%tmp.71, %tmp.73);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 83 8 ]
+        %tmp.74 = lgetv %menu.1;
+        symbol [ menu %tmp.74 83 8 12 ];
+        symbol [ addItem %tmp.75 83 13 20 ];
+        %tmp.75 = getv function %tmp.74 :addItem;
+        %tmp.76 = "7.0 U";
+        %tmp.78 = const :m;
+        symbol [ m %tmp.78 83 31 32 const ];
+        invoke %tmp.74 %tmp.75(%tmp.76, %tmp.78);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 84 8 ]
+        %tmp.79 = lgetv %menu.1;
+        symbol [ menu %tmp.79 84 8 12 ];
+        symbol [ addItem %tmp.80 84 13 20 ];
+        %tmp.80 = getv function %tmp.79 :addItem;
+        %tmp.81 = "8.0 U";
+        %tmp.83 = const :n;
+        symbol [ n %tmp.83 84 31 32 const ];
+        invoke %tmp.79 %tmp.80(%tmp.81, %tmp.83);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 85 8 ]
+        symbol [ WatchUi %tmp.85 85 8 15 ];
+        %tmp.85 = getv ? :WatchUi;
+        symbol [ pushView %tmp.86 85 16 24 ];
+        %tmp.86 = getv function %tmp.85 :pushView;
+        %tmp.87 = lgetv %menu.1;
+        symbol [ menu %tmp.87 85 25 29 ];
+        symbol [ BolusMenuInputDelegate %tmp.91 85 35 57 ];
+        %tmp.91 = getv ? :BolusMenuInputDelegate;
+        %tmp.88 = newc %tmp.91 ();
+        symbol [ WatchUi %tmp.93 85 61 68 ];
+        %tmp.93 = getv ? :WatchUi;
+        symbol [ SLIDE_IMMEDIATE %tmp.94 85 69 84 ];
+        %tmp.94 = getv %tmp.93 :SLIDE_IMMEDIATE;
+        invoke %tmp.85 %tmp.86(%tmp.87, %tmp.88, %tmp.94);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_66_29_86_5_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 88; @symbol_functiondef = [sendBolus,88,13,22]; ]
+    function sendBolus() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_88_25_93_5_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 89 8 ]
+        symbol [ Gfx %tmp.1 89 22 25 ];
+        %tmp.1 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.2 89 26 37 ];
+        %tmp.2 = getv %tmp.1 :COLOR_WHITE;
+        symbol [ bolusCircle ? 89 8 19 ];
+        putv self :bolusCircle %tmp.2;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 90 8 ]
+        symbol [ Comm %tmp.3 90 8 12 ];
+        %tmp.3 = getm $.Toybox.Communications;
+        symbol [ makeWebRequest %tmp.4 90 13 27 ];
+        %tmp.4 = getv function %tmp.3 :makeWebRequest;
+        symbol [ bolusUrl %tmp.6 90 29 37 ];
+        %tmp.6 = getv ? :bolusUrl;
+        %tmp.7 = newd 2;
+        %tmp.8 = "bolus";
+        symbol [ bolusValue %tmp.10 90 52 62 ];
+        %tmp.10 = getv ? :bolusValue;
+        %tmp.11 = dup %tmp.7;
+        %tmp.12 = aputv %tmp.11 %tmp.8 %tmp.10;
+        %tmp.13 = "enteredBy";
+        %tmp.14 = "Garmin Widget";
+        %tmp.15 = dup %tmp.12;
+        %tmp.16 = aputv %tmp.15 %tmp.13 %tmp.14;
+        %tmp.17 = newd 3;
+        %tmp.19 = const :method;
+        symbol [ method %tmp.19 90 101 107 const ];
+        symbol [ Comm %tmp.20 90 111 115 ];
+        %tmp.20 = getm $.Toybox.Communications;
+        symbol [ HTTP_REQUEST_METHOD_POST %tmp.21 90 116 140 ];
+        %tmp.21 = getv %tmp.20 :HTTP_REQUEST_METHOD_POST;
+        %tmp.22 = dup %tmp.17;
+        %tmp.23 = aputv %tmp.22 %tmp.19 %tmp.21;
+        %tmp.25 = const :headers;
+        symbol [ headers %tmp.25 90 143 150 const ];
+        %tmp.26 = newd 1;
+        %tmp.27 = "Content-Type";
+        symbol [ Comm %tmp.28 90 174 178 ];
+        %tmp.28 = getm $.Toybox.Communications;
+        symbol [ HTTP_RESPONSE_CONTENT_TYPE_JSON %tmp.29 90 179 210 ];
+        %tmp.29 = getv %tmp.28 :HTTP_RESPONSE_CONTENT_TYPE_JSON;
+        %tmp.30 = dup %tmp.26;
+        %tmp.31 = aputv %tmp.30 %tmp.27 %tmp.29;
+        %tmp.32 = dup %tmp.23;
+        %tmp.33 = aputv %tmp.32 %tmp.25 %tmp.31;
+        %tmp.35 = const :responseType;
+        symbol [ responseType %tmp.35 90 215 227 const ];
+        symbol [ Comm %tmp.36 90 231 235 ];
+        %tmp.36 = getm $.Toybox.Communications;
+        symbol [ HTTP_RESPONSE_CONTENT_TYPE_JSON %tmp.37 90 236 267 ];
+        %tmp.37 = getv %tmp.36 :HTTP_RESPONSE_CONTENT_TYPE_JSON;
+        %tmp.38 = dup %tmp.33;
+        %tmp.39 = aputv %tmp.38 %tmp.35 %tmp.37;
+        %tmp.40 = self;
+        symbol [ method %tmp.41 90 270 276 ];
+        %tmp.41 = getv function %tmp.40 :method;
+        %tmp.43 = const :onBolusResponse;
+        symbol [ onBolusResponse %tmp.43 90 278 293 const ];
+        %tmp.44 = invoke %tmp.40 %tmp.41(%tmp.43);
+        invoke %tmp.3 %tmp.4(%tmp.6, %tmp.16, %tmp.39, %tmp.44);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 91 8 ]
+        %tmp.45 = 3;
+        symbol [ bolusAbfrage ? 91 8 20 ];
+        putv self :bolusAbfrage %tmp.45;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 92 8 ]
+        %tmp.46 = true;
+        ret %tmp.46;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_88_25_93_5_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 95; @symbol_functiondef = [onBolusResponse,95,14,29]; @symbol_param<0> = [responseCode,95,31,43]; @symbol_param<0>_type<0> = [Lang,95,47,51]; @symbol_param<0>_type<1> = [Number,95,52,58]; @symbol_param<1> = [data,95,60,64]; @symbol_param<1>_type<0> = [Lang,95,68,72]; @symbol_param<1>_type<1> = [Dictionary,95,73,83]; @symbol_param<1>_type<2> = [Lang,95,87,91]; @symbol_param<1>_type<3> = [String,95,92,98]; ]
+    function onBolusResponse(responseCode as Lang.Number, data as Lang.Dictionary or Lang.String or Null) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_95_117_107_5_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 96 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_stmt:
+        %tmp.1 = lgetv %responseCode;
+        symbol [ responseCode %tmp.1 96 12 24 ];
+        %tmp.2 = 200;
+        %tmp.3 = eq %tmp.1 %tmp.2;
+        bf %tmp.3 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_else_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_34_100_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 97 12 ]
+        symbol [ Sys %tmp.4 97 12 15 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 97 16 23 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = lgetv %data;
+        symbol [ data %tmp.6 97 24 28 ];
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 98 12 ]
+        %tmp.7 = "transmitted to\nAAPS";
+        symbol [ bolusError ? 98 12 22 ];
+        putv self :bolusError %tmp.7;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 99 12 ]
+        symbol [ Gfx %tmp.8 99 26 29 ];
+        %tmp.8 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.9 99 30 41 ];
+        %tmp.9 = getv %tmp.8 :COLOR_GREEN;
+        symbol [ bolusCircle ? 99 12 23 ];
+        putv self :bolusCircle %tmp.9;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_34_100_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_else_false:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_100_15_104_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 101 12 ]
+        %tmp.10 = "Error: ";
+        %tmp.11 = lgetv %responseCode;
+        symbol [ responseCode %tmp.11 101 37 49 ];
+        symbol [ toString %tmp.12 101 50 58 ];
+        %tmp.12 = getv function %tmp.11 :toString;
+        %tmp.13 = invoke %tmp.11 %tmp.12();
+        %tmp.14 = add %tmp.10 %tmp.13;
+        symbol [ bolusError ? 101 12 22 ];
+        putv self :bolusError %tmp.14;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 102 12 ]
+        symbol [ Gfx %tmp.15 102 26 29 ];
+        %tmp.15 = getm $.Toybox.Graphics;
+        symbol [ COLOR_RED %tmp.16 102 30 39 ];
+        %tmp.16 = getv %tmp.15 :COLOR_RED;
+        symbol [ bolusCircle ? 102 12 23 ];
+        putv self :bolusCircle %tmp.16;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 103 12 ]
+        %tmp.17 = true;
+        symbol [ bolusErrorCircle ? 103 12 28 ];
+        putv self :bolusErrorCircle %tmp.17;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_100_15_104_8_stop:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_96_8_104_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 105 8 ]
+        %tmp.18 = 4;
+        symbol [ bolusAbfrage ? 105 8 20 ];
+        putv self :bolusAbfrage %tmp.18;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 106 8 ]
+        symbol [ Ui %tmp.19 106 8 10 ];
+        %tmp.19 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.20 106 11 24 ];
+        %tmp.20 = getv function %tmp.19 :requestUpdate;
+        invoke %tmp.19 %tmp.20();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_95_117_107_5_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 111; @symbol_classdef = [BolusMenuInputDelegate,111,6,28]; @symbol_extends<0> = [Ui,111,37,39]; @symbol_extends<1> = [MenuInputDelegate,111,40,57]; ]
+class BolusMenuInputDelegate extends Ui.MenuInputDelegate {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 111; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 111; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 113; @symbol_functiondef = [initialize,113,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_113_26_115_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 114 7 ]
+        symbol [ MenuInputDelegate %tmp.2 114 7 24 ];
+        %tmp.2 = getv ? :MenuInputDelegate;
+        symbol [ initialize %tmp.3 114 25 35 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_113_26_115_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 117; @symbol_functiondef = [onMenuItem,117,13,23]; @symbol_param<0> = [item,117,24,28]; ]
+    function onMenuItem(item) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_117_30_155_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 118 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_8_124_8_if_stmt:
+        %tmp.1 = lgetv %item;
+        symbol [ item %tmp.1 118 12 16 ];
+        %tmp.3 = const :custom;
+        symbol [ custom %tmp.3 118 21 27 const ];
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_8_124_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_8_124_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_29_124_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 121 12 ]
+        %tmp.5 = 0.0;
+        symbol [ bolusCustom ? 121 12 23 ];
+        putv self :bolusCustom %tmp.5;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 122 12 ]
+        %tmp.6 = true;
+        symbol [ bolusOpenCustom ? 122 12 27 ];
+        putv self :bolusOpenCustom %tmp.6;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 123 12 ]
+        ret ?;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_29_124_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_8_124_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_118_8_124_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 125 8 ]
+        symbol [ Gfx %tmp.7 125 22 25 ];
+        %tmp.7 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.8 125 26 38 ];
+        %tmp.8 = getv %tmp.7 :COLOR_YELLOW;
+        symbol [ bolusCircle ? 125 8 19 ];
+        putv self :bolusCircle %tmp.8;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 126 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_stmt:
+        %tmp.9 = lgetv %item;
+        symbol [ item %tmp.9 126 12 16 ];
+        %tmp.11 = const :a;
+        symbol [ a %tmp.11 126 21 22 const ];
+        %tmp.12 = eq %tmp.9 %tmp.11;
+        bf %tmp.12 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_24_128_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 127 12 ]
+        %tmp.13 = 0.2;
+        symbol [ bolusValue ? 127 12 22 ];
+        putv self :bolusValue %tmp.13;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_24_128_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 128 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_stmt:
+        %tmp.14 = lgetv %item;
+        symbol [ item %tmp.14 128 19 23 ];
+        %tmp.16 = const :b;
+        symbol [ b %tmp.16 128 28 29 const ];
+        %tmp.17 = eq %tmp.14 %tmp.16;
+        bf %tmp.17 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_31_130_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 129 12 ]
+        %tmp.18 = 0.5;
+        symbol [ bolusValue ? 129 12 22 ];
+        putv self :bolusValue %tmp.18;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_31_130_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 130 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_stmt:
+        %tmp.19 = lgetv %item;
+        symbol [ item %tmp.19 130 19 23 ];
+        %tmp.21 = const :c;
+        symbol [ c %tmp.21 130 28 29 const ];
+        %tmp.22 = eq %tmp.19 %tmp.21;
+        bf %tmp.22 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_31_132_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 131 12 ]
+        %tmp.23 = 1.0;
+        symbol [ bolusValue ? 131 12 22 ];
+        putv self :bolusValue %tmp.23;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_31_132_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 132 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_stmt:
+        %tmp.24 = lgetv %item;
+        symbol [ item %tmp.24 132 19 23 ];
+        %tmp.26 = const :d;
+        symbol [ d %tmp.26 132 28 29 const ];
+        %tmp.27 = eq %tmp.24 %tmp.26;
+        bf %tmp.27 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_31_134_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 133 12 ]
+        %tmp.28 = 1.5;
+        symbol [ bolusValue ? 133 12 22 ];
+        putv self :bolusValue %tmp.28;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_31_134_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 134 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_stmt:
+        %tmp.29 = lgetv %item;
+        symbol [ item %tmp.29 134 19 23 ];
+        %tmp.31 = const :e;
+        symbol [ e %tmp.31 134 28 29 const ];
+        %tmp.32 = eq %tmp.29 %tmp.31;
+        bf %tmp.32 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_31_136_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 135 12 ]
+        %tmp.33 = 2.0;
+        symbol [ bolusValue ? 135 12 22 ];
+        putv self :bolusValue %tmp.33;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_31_136_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 136 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_stmt:
+        %tmp.34 = lgetv %item;
+        symbol [ item %tmp.34 136 19 23 ];
+        %tmp.36 = const :f;
+        symbol [ f %tmp.36 136 28 29 const ];
+        %tmp.37 = eq %tmp.34 %tmp.36;
+        bf %tmp.37 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_31_138_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 137 12 ]
+        %tmp.38 = 2.5;
+        symbol [ bolusValue ? 137 12 22 ];
+        putv self :bolusValue %tmp.38;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_31_138_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 138 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_stmt:
+        %tmp.39 = lgetv %item;
+        symbol [ item %tmp.39 138 19 23 ];
+        %tmp.41 = const :g;
+        symbol [ g %tmp.41 138 28 29 const ];
+        %tmp.42 = eq %tmp.39 %tmp.41;
+        bf %tmp.42 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_31_140_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 139 12 ]
+        %tmp.43 = 3.0;
+        symbol [ bolusValue ? 139 12 22 ];
+        putv self :bolusValue %tmp.43;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_31_140_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 140 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_stmt:
+        %tmp.44 = lgetv %item;
+        symbol [ item %tmp.44 140 19 23 ];
+        %tmp.46 = const :h;
+        symbol [ h %tmp.46 140 28 29 const ];
+        %tmp.47 = eq %tmp.44 %tmp.46;
+        bf %tmp.47 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_31_142_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 141 12 ]
+        %tmp.48 = 3.5;
+        symbol [ bolusValue ? 141 12 22 ];
+        putv self :bolusValue %tmp.48;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_31_142_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 142 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_stmt:
+        %tmp.49 = lgetv %item;
+        symbol [ item %tmp.49 142 19 23 ];
+        %tmp.51 = const :i;
+        symbol [ i %tmp.51 142 28 29 const ];
+        %tmp.52 = eq %tmp.49 %tmp.51;
+        bf %tmp.52 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_31_144_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 143 12 ]
+        %tmp.53 = 4.0;
+        symbol [ bolusValue ? 143 12 22 ];
+        putv self :bolusValue %tmp.53;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_31_144_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 144 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_stmt:
+        %tmp.54 = lgetv %item;
+        symbol [ item %tmp.54 144 19 23 ];
+        %tmp.56 = const :j;
+        symbol [ j %tmp.56 144 28 29 const ];
+        %tmp.57 = eq %tmp.54 %tmp.56;
+        bf %tmp.57 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_31_146_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 145 12 ]
+        %tmp.58 = 4.5;
+        symbol [ bolusValue ? 145 12 22 ];
+        putv self :bolusValue %tmp.58;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_31_146_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 146 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_stmt:
+        %tmp.59 = lgetv %item;
+        symbol [ item %tmp.59 146 19 23 ];
+        %tmp.61 = const :k;
+        symbol [ k %tmp.61 146 28 29 const ];
+        %tmp.62 = eq %tmp.59 %tmp.61;
+        bf %tmp.62 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_31_148_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 147 12 ]
+        %tmp.63 = 5.0;
+        symbol [ bolusValue ? 147 12 22 ];
+        putv self :bolusValue %tmp.63;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_31_148_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 148 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_stmt:
+        %tmp.64 = lgetv %item;
+        symbol [ item %tmp.64 148 19 23 ];
+        %tmp.66 = const :l;
+        symbol [ l %tmp.66 148 28 29 const ];
+        %tmp.67 = eq %tmp.64 %tmp.66;
+        bf %tmp.67 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_31_150_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 149 12 ]
+        %tmp.68 = 6.0;
+        symbol [ bolusValue ? 149 12 22 ];
+        putv self :bolusValue %tmp.68;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_31_150_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 150 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_stmt:
+        %tmp.69 = lgetv %item;
+        symbol [ item %tmp.69 150 19 23 ];
+        %tmp.71 = const :m;
+        symbol [ m %tmp.71 150 28 29 const ];
+        %tmp.72 = eq %tmp.69 %tmp.71;
+        bf %tmp.72 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_31_152_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 151 12 ]
+        %tmp.73 = 7.0;
+        symbol [ bolusValue ? 151 12 22 ];
+        putv self :bolusValue %tmp.73;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_31_152_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 152 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_15_154_8_if_stmt:
+        %tmp.74 = lgetv %item;
+        symbol [ item %tmp.74 152 19 23 ];
+        %tmp.76 = const :n;
+        symbol [ n %tmp.76 152 28 29 const ];
+        %tmp.77 = eq %tmp.74 %tmp.76;
+        bf %tmp.77 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_15_154_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_31_154_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 153 12 ]
+        %tmp.78 = 8.0;
+        symbol [ bolusValue ? 153 12 22 ];
+        putv self :bolusValue %tmp.78;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_31_154_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_15_154_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_152_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_150_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_148_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_146_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_144_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_142_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_140_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_138_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_136_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_134_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_132_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_130_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_128_15_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_126_8_154_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_117_30_155_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 163; @symbol_classdef = [BolusCustomPickerView,163,6,27]; @symbol_extends<0> = [Ui,163,36,38]; @symbol_extends<1> = [View,163,39,43]; ]
+class BolusCustomPickerView extends Ui.View {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 163; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 163; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 165; @symbol_functiondef = [initialize,165,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_165_26_167_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 166 8 ]
+        symbol [ View %tmp.2 166 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 166 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_165_26_167_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 169; @symbol_functiondef = [onLayout,169,13,21]; @symbol_param<0> = [dc,169,22,24]; ]
+    function onLayout(dc) as Void {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 172; @symbol_functiondef = [onUpdate,172,13,21]; @symbol_param<0> = [dc,172,22,24]; ]
+    function onUpdate(dc) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 173 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_stop" ]
+        %cx.1 = local;
+        symbol [ cx %cx.1 173 12 14 ];
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 173 17 19 ];
+        symbol [ getWidth %tmp.2 173 20 28 ];
+        %tmp.2 = getv function %tmp.1 :getWidth;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = 0.5;
+        %tmp.5 = mul %tmp.3 %tmp.4;
+        lputv %cx.1 %tmp.5;
+        symbol [ cx %cx.1 173 12 14 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 174 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_stop" ]
+        %cy.2 = local;
+        symbol [ cy %cy.2 174 12 14 ];
+        %tmp.6 = lgetv %dc;
+        symbol [ dc %tmp.6 174 17 19 ];
+        symbol [ getHeight %tmp.7 174 20 29 ];
+        %tmp.7 = getv function %tmp.6 :getHeight;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        %tmp.9 = 0.5;
+        %tmp.10 = mul %tmp.8 %tmp.9;
+        lputv %cy.2 %tmp.10;
+        symbol [ cy %cy.2 174 12 14 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 176 8 ]
+        %tmp.11 = lgetv %dc;
+        symbol [ dc %tmp.11 176 8 10 ];
+        symbol [ setColor %tmp.12 176 11 19 ];
+        %tmp.12 = getv function %tmp.11 :setColor;
+        symbol [ Gfx %tmp.13 176 20 23 ];
+        %tmp.13 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.14 176 24 35 ];
+        %tmp.14 = getv %tmp.13 :COLOR_BLACK;
+        symbol [ Gfx %tmp.15 176 37 40 ];
+        %tmp.15 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.16 176 41 52 ];
+        %tmp.16 = getv %tmp.15 :COLOR_BLACK;
+        invoke %tmp.11 %tmp.12(%tmp.14, %tmp.16);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 177 8 ]
+        %tmp.17 = lgetv %dc;
+        symbol [ dc %tmp.17 177 8 10 ];
+        symbol [ clear %tmp.18 177 11 16 ];
+        %tmp.18 = getv function %tmp.17 :clear;
+        invoke %tmp.17 %tmp.18();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 180 8 ]
+        %tmp.19 = lgetv %dc;
+        symbol [ dc %tmp.19 180 8 10 ];
+        symbol [ setColor %tmp.20 180 11 19 ];
+        %tmp.20 = getv function %tmp.19 :setColor;
+        symbol [ Gfx %tmp.21 180 20 23 ];
+        %tmp.21 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.22 180 24 37 ];
+        %tmp.22 = getv %tmp.21 :COLOR_LT_GRAY;
+        symbol [ Gfx %tmp.23 180 39 42 ];
+        %tmp.23 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.24 180 43 60 ];
+        %tmp.24 = getv %tmp.23 :COLOR_TRANSPARENT;
+        invoke %tmp.19 %tmp.20(%tmp.22, %tmp.24);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 181 8 ]
+        %tmp.25 = lgetv %dc;
+        symbol [ dc %tmp.25 181 8 10 ];
+        symbol [ drawText %tmp.26 181 11 19 ];
+        %tmp.26 = getv function %tmp.25 :drawText;
+        %tmp.27 = lgetv %cx.1;
+        symbol [ cx %tmp.27 181 20 22 ];
+        %tmp.28 = lgetv %cy.2;
+        symbol [ cy %tmp.28 181 24 26 ];
+        %tmp.29 = 70;
+        %tmp.30 = sub %tmp.28 %tmp.29;
+        symbol [ Gfx %tmp.31 181 33 36 ];
+        %tmp.31 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.32 181 37 47 ];
+        %tmp.32 = getv %tmp.31 :FONT_SMALL;
+        %tmp.33 = "Set Bolus (U)";
+        symbol [ Gfx %tmp.34 181 66 69 ];
+        %tmp.34 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.35 181 70 89 ];
+        %tmp.35 = getv %tmp.34 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.25 %tmp.26(%tmp.27, %tmp.30, %tmp.32, %tmp.33, %tmp.35);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 184 8 ]
+        %tmp.36 = lgetv %dc;
+        symbol [ dc %tmp.36 184 8 10 ];
+        symbol [ setColor %tmp.37 184 11 19 ];
+        %tmp.37 = getv function %tmp.36 :setColor;
+        symbol [ Gfx %tmp.38 184 20 23 ];
+        %tmp.38 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.39 184 24 37 ];
+        %tmp.39 = getv %tmp.38 :COLOR_DK_GRAY;
+        symbol [ Gfx %tmp.40 184 39 42 ];
+        %tmp.40 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.41 184 43 60 ];
+        %tmp.41 = getv %tmp.40 :COLOR_TRANSPARENT;
+        invoke %tmp.36 %tmp.37(%tmp.39, %tmp.41);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 185 8 ]
+        %tmp.42 = lgetv %dc;
+        symbol [ dc %tmp.42 185 8 10 ];
+        symbol [ drawText %tmp.43 185 11 19 ];
+        %tmp.43 = getv function %tmp.42 :drawText;
+        %tmp.44 = lgetv %cx.1;
+        symbol [ cx %tmp.44 185 20 22 ];
+        %tmp.45 = lgetv %cy.2;
+        symbol [ cy %tmp.45 185 24 26 ];
+        %tmp.46 = 45;
+        %tmp.47 = sub %tmp.45 %tmp.46;
+        symbol [ Gfx %tmp.48 185 33 36 ];
+        %tmp.48 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.49 185 37 48 ];
+        %tmp.49 = getv %tmp.48 :FONT_MEDIUM;
+        %tmp.50 = "+";
+        symbol [ Gfx %tmp.51 185 55 58 ];
+        %tmp.51 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.52 185 59 78 ];
+        %tmp.52 = getv %tmp.51 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.42 %tmp.43(%tmp.44, %tmp.47, %tmp.49, %tmp.50, %tmp.52);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 188 8 ]
+        %tmp.53 = lgetv %dc;
+        symbol [ dc %tmp.53 188 8 10 ];
+        symbol [ setColor %tmp.54 188 11 19 ];
+        %tmp.54 = getv function %tmp.53 :setColor;
+        symbol [ Gfx %tmp.55 188 20 23 ];
+        %tmp.55 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.56 188 24 35 ];
+        %tmp.56 = getv %tmp.55 :COLOR_WHITE;
+        symbol [ Gfx %tmp.57 188 37 40 ];
+        %tmp.57 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.58 188 41 58 ];
+        %tmp.58 = getv %tmp.57 :COLOR_TRANSPARENT;
+        invoke %tmp.53 %tmp.54(%tmp.56, %tmp.58);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 189 8 ]
+        %tmp.59 = lgetv %dc;
+        symbol [ dc %tmp.59 189 8 10 ];
+        symbol [ drawText %tmp.60 189 11 19 ];
+        %tmp.60 = getv function %tmp.59 :drawText;
+        %tmp.61 = lgetv %cx.1;
+        symbol [ cx %tmp.61 189 20 22 ];
+        %tmp.62 = lgetv %cy.2;
+        symbol [ cy %tmp.62 189 24 26 ];
+        symbol [ Gfx %tmp.63 189 28 31 ];
+        %tmp.63 = getm $.Toybox.Graphics;
+        symbol [ FONT_NUMBER_HOT %tmp.64 189 32 47 ];
+        %tmp.64 = getv %tmp.63 :FONT_NUMBER_HOT;
+        symbol [ bolusCustom %tmp.66 189 49 60 ];
+        %tmp.66 = getv ? :bolusCustom;
+        symbol [ format %tmp.67 189 61 67 ];
+        %tmp.67 = getv function %tmp.66 :format;
+        %tmp.68 = "%.1f";
+        %tmp.69 = invoke %tmp.66 %tmp.67(%tmp.68);
+        symbol [ Gfx %tmp.70 189 77 80 ];
+        %tmp.70 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.71 189 81 100 ];
+        %tmp.71 = getv %tmp.70 :TEXT_JUSTIFY_CENTER;
+        symbol [ Gfx %tmp.72 189 103 106 ];
+        %tmp.72 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.73 189 107 127 ];
+        %tmp.73 = getv %tmp.72 :TEXT_JUSTIFY_VCENTER;
+        %tmp.74 = bitor %tmp.71 %tmp.73;
+        invoke %tmp.59 %tmp.60(%tmp.61, %tmp.62, %tmp.64, %tmp.69, %tmp.74);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 192 8 ]
+        %tmp.75 = lgetv %dc;
+        symbol [ dc %tmp.75 192 8 10 ];
+        symbol [ setColor %tmp.76 192 11 19 ];
+        %tmp.76 = getv function %tmp.75 :setColor;
+        symbol [ Gfx %tmp.77 192 20 23 ];
+        %tmp.77 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.78 192 24 37 ];
+        %tmp.78 = getv %tmp.77 :COLOR_DK_GRAY;
+        symbol [ Gfx %tmp.79 192 39 42 ];
+        %tmp.79 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.80 192 43 60 ];
+        %tmp.80 = getv %tmp.79 :COLOR_TRANSPARENT;
+        invoke %tmp.75 %tmp.76(%tmp.78, %tmp.80);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 193 8 ]
+        %tmp.81 = lgetv %dc;
+        symbol [ dc %tmp.81 193 8 10 ];
+        symbol [ drawText %tmp.82 193 11 19 ];
+        %tmp.82 = getv function %tmp.81 :drawText;
+        %tmp.83 = lgetv %cx.1;
+        symbol [ cx %tmp.83 193 20 22 ];
+        %tmp.84 = lgetv %cy.2;
+        symbol [ cy %tmp.84 193 24 26 ];
+        %tmp.85 = 40;
+        %tmp.86 = add %tmp.84 %tmp.85;
+        symbol [ Gfx %tmp.87 193 33 36 ];
+        %tmp.87 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.88 193 37 48 ];
+        %tmp.88 = getv %tmp.87 :FONT_MEDIUM;
+        %tmp.89 = "-";
+        symbol [ Gfx %tmp.90 193 55 58 ];
+        %tmp.90 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.91 193 59 78 ];
+        %tmp.91 = getv %tmp.90 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.81 %tmp.82(%tmp.83, %tmp.86, %tmp.88, %tmp.89, %tmp.91);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 196 8 ]
+        %tmp.92 = lgetv %dc;
+        symbol [ dc %tmp.92 196 8 10 ];
+        symbol [ setColor %tmp.93 196 11 19 ];
+        %tmp.93 = getv function %tmp.92 :setColor;
+        symbol [ Gfx %tmp.94 196 20 23 ];
+        %tmp.94 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.95 196 24 36 ];
+        %tmp.95 = getv %tmp.94 :COLOR_YELLOW;
+        symbol [ Gfx %tmp.96 196 38 41 ];
+        %tmp.96 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.97 196 42 59 ];
+        %tmp.97 = getv %tmp.96 :COLOR_TRANSPARENT;
+        invoke %tmp.92 %tmp.93(%tmp.95, %tmp.97);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 197 8 ]
+        %tmp.98 = lgetv %dc;
+        symbol [ dc %tmp.98 197 8 10 ];
+        symbol [ drawText %tmp.99 197 11 19 ];
+        %tmp.99 = getv function %tmp.98 :drawText;
+        %tmp.100 = lgetv %cx.1;
+        symbol [ cx %tmp.100 197 20 22 ];
+        %tmp.101 = lgetv %cy.2;
+        symbol [ cy %tmp.101 197 24 26 ];
+        %tmp.102 = 70;
+        %tmp.103 = add %tmp.101 %tmp.102;
+        symbol [ Gfx %tmp.104 197 33 36 ];
+        %tmp.104 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.105 197 37 47 ];
+        %tmp.105 = getv %tmp.104 :FONT_XTINY;
+        %tmp.106 = "SELECT to confirm";
+        symbol [ Gfx %tmp.107 197 70 73 ];
+        %tmp.107 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.108 197 74 93 ];
+        %tmp.108 = getv %tmp.107 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.98 %tmp.99(%tmp.100, %tmp.103, %tmp.105, %tmp.106, %tmp.108);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_172_34_198_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 202; @symbol_classdef = [BolusCustomPickerDelegate,202,6,31]; @symbol_extends<0> = [Ui,202,40,42]; @symbol_extends<1> = [BehaviorDelegate,202,43,59]; ]
+class BolusCustomPickerDelegate extends Ui.BehaviorDelegate {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 202; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 202; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 204; @symbol_functiondef = [initialize,204,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_204_26_206_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 205 8 ]
+        symbol [ BehaviorDelegate %tmp.2 205 8 24 ];
+        %tmp.2 = getv ? :BehaviorDelegate;
+        symbol [ initialize %tmp.3 205 25 35 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_204_26_206_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 209; @symbol_functiondef = [onPreviousPage,209,13,27]; ]
+    function onPreviousPage() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_209_30_215_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 210 8 ]
+        symbol [ bolusCustom %tmp.2 210 22 33 ];
+        %tmp.2 = getv ? :bolusCustom;
+        %tmp.3 = 0.1;
+        %tmp.4 = add %tmp.2 %tmp.3;
+        symbol [ bolusCustom ? 210 8 19 ];
+        putv self :bolusCustom %tmp.4;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 211 8 ]
+        symbol [ bolusCustom %tmp.6 211 24 35 ];
+        %tmp.6 = getv ? :bolusCustom;
+        %tmp.7 = 10;
+        %tmp.8 = mul %tmp.6 %tmp.7;
+        %tmp.9 = 0.5;
+        %tmp.10 = add %tmp.8 %tmp.9;
+        symbol [ toNumber %tmp.11 211 48 56 ];
+        %tmp.11 = getv function %tmp.10 :toNumber;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        symbol [ toFloat %tmp.13 211 60 67 ];
+        %tmp.13 = getv function %tmp.12 :toFloat;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = 10.0;
+        %tmp.16 = div %tmp.14 %tmp.15;
+        symbol [ bolusCustom ? 211 8 19 ];
+        putv self :bolusCustom %tmp.16;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 212 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_8_212_55_if_stmt:
+        symbol [ bolusCustom %tmp.18 212 12 23 ];
+        %tmp.18 = getv ? :bolusCustom;
+        %tmp.19 = 30.0;
+        %tmp.20 = gt %tmp.18 %tmp.19;
+        bf %tmp.20 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_8_212_55_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_8_212_55_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_33_212_55_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 212 35 ]
+        %tmp.21 = 30.0;
+        symbol [ bolusCustom ? 212 35 46 ];
+        putv self :bolusCustom %tmp.21;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_33_212_55_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_8_212_55_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_212_8_212_55_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 213 8 ]
+        symbol [ Ui %tmp.22 213 8 10 ];
+        %tmp.22 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.23 213 11 24 ];
+        %tmp.23 = getv function %tmp.22 :requestUpdate;
+        invoke %tmp.22 %tmp.23();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 214 8 ]
+        %tmp.24 = true;
+        ret %tmp.24;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_209_30_215_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 218; @symbol_functiondef = [onNextPage,218,13,23]; ]
+    function onNextPage() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_218_26_224_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 219 8 ]
+        symbol [ bolusCustom %tmp.2 219 22 33 ];
+        %tmp.2 = getv ? :bolusCustom;
+        %tmp.3 = 0.1;
+        %tmp.4 = sub %tmp.2 %tmp.3;
+        symbol [ bolusCustom ? 219 8 19 ];
+        putv self :bolusCustom %tmp.4;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 220 8 ]
+        symbol [ bolusCustom %tmp.6 220 24 35 ];
+        %tmp.6 = getv ? :bolusCustom;
+        %tmp.7 = 10;
+        %tmp.8 = mul %tmp.6 %tmp.7;
+        %tmp.9 = 0.5;
+        %tmp.10 = add %tmp.8 %tmp.9;
+        symbol [ toNumber %tmp.11 220 48 56 ];
+        %tmp.11 = getv function %tmp.10 :toNumber;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        symbol [ toFloat %tmp.13 220 60 67 ];
+        %tmp.13 = getv function %tmp.12 :toFloat;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = 10.0;
+        %tmp.16 = div %tmp.14 %tmp.15;
+        symbol [ bolusCustom ? 220 8 19 ];
+        putv self :bolusCustom %tmp.16;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 221 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_8_221_53_if_stmt:
+        symbol [ bolusCustom %tmp.18 221 12 23 ];
+        %tmp.18 = getv ? :bolusCustom;
+        %tmp.19 = 0.0;
+        %tmp.20 = lt %tmp.18 %tmp.19;
+        bf %tmp.20 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_8_221_53_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_8_221_53_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_32_221_53_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 221 34 ]
+        %tmp.21 = 0.0;
+        symbol [ bolusCustom ? 221 34 45 ];
+        putv self :bolusCustom %tmp.21;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_32_221_53_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_8_221_53_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_221_8_221_53_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 222 8 ]
+        symbol [ Ui %tmp.22 222 8 10 ];
+        %tmp.22 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.23 222 11 24 ];
+        %tmp.23 = getv function %tmp.22 :requestUpdate;
+        invoke %tmp.22 %tmp.23();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 223 8 ]
+        %tmp.24 = true;
+        ret %tmp.24;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_218_26_224_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 227; @symbol_functiondef = [onSelect,227,13,21]; ]
+    function onSelect() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_227_24_233_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 228 8 ]
+        symbol [ bolusCustom %tmp.2 228 21 32 ];
+        %tmp.2 = getv ? :bolusCustom;
+        symbol [ bolusValue ? 228 8 18 ];
+        putv self :bolusValue %tmp.2;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 229 8 ]
+        symbol [ Gfx %tmp.3 229 22 25 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.4 229 26 38 ];
+        %tmp.4 = getv %tmp.3 :COLOR_YELLOW;
+        symbol [ bolusCircle ? 229 8 19 ];
+        putv self :bolusCircle %tmp.4;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 230 8 ]
+        %tmp.5 = 2;
+        symbol [ bolusAbfrage ? 230 8 20 ];
+        putv self :bolusAbfrage %tmp.5;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 231 8 ]
+        symbol [ WatchUi %tmp.7 231 8 15 ];
+        %tmp.7 = getv ? :WatchUi;
+        symbol [ popView %tmp.8 231 16 23 ];
+        %tmp.8 = getv function %tmp.7 :popView;
+        symbol [ WatchUi %tmp.10 231 24 31 ];
+        %tmp.10 = getv ? :WatchUi;
+        symbol [ SLIDE_RIGHT %tmp.11 231 32 43 ];
+        %tmp.11 = getv %tmp.10 :SLIDE_RIGHT;
+        invoke %tmp.7 %tmp.8(%tmp.11);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 232 8 ]
+        %tmp.12 = true;
+        ret %tmp.12;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_227_24_233_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 235; @symbol_functiondef = [onKey,235,13,18]; @symbol_param<0> = [keyEvent,235,19,27]; ]
+    function onKey(keyEvent) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_235_29_245_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 236 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_235_29_245_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_235_29_245_4_stop" ]
+        %key.1 = local;
+        symbol [ key %key.1 236 12 15 ];
+        %tmp.1 = lgetv %keyEvent;
+        symbol [ keyEvent %tmp.1 236 18 26 ];
+        symbol [ getKey %tmp.2 236 27 33 ];
+        %tmp.2 = getv function %tmp.1 :getKey;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %key.1 %tmp.3;
+        symbol [ key %key.1 236 12 15 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 237 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_stmt:
+        %tmp.4 = lgetv %key.1;
+        symbol [ key %tmp.4 237 12 15 ];
+        %tmp.5 = 4;
+        %tmp.6 = eq %tmp.4 %tmp.5;
+        bf %tmp.6 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_23_239_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 238 12 ]
+        %tmp.7 = self;
+        symbol [ onSelect %tmp.8 238 19 27 ];
+        %tmp.8 = getv function %tmp.7 :onSelect;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        ret %tmp.9;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_23_239_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 239 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_stmt:
+        %tmp.10 = lgetv %key.1;
+        symbol [ key %tmp.10 239 19 22 ];
+        %tmp.11 = 13;
+        %tmp.12 = eq %tmp.10 %tmp.11;
+        bf %tmp.12 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_31_241_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 240 12 ]
+        %tmp.13 = self;
+        symbol [ onPreviousPage %tmp.14 240 19 33 ];
+        %tmp.14 = getv function %tmp.13 :onPreviousPage;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        ret %tmp.15;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_31_241_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 241 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_15_243_8_if_stmt:
+        %tmp.16 = lgetv %key.1;
+        symbol [ key %tmp.16 241 19 22 ];
+        %tmp.17 = 8;
+        %tmp.18 = eq %tmp.16 %tmp.17;
+        bf %tmp.18 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_15_243_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_15_243_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_30_243_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 242 12 ]
+        %tmp.19 = self;
+        symbol [ onNextPage %tmp.20 242 19 29 ];
+        %tmp.20 = getv function %tmp.19 :onNextPage;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        ret %tmp.21;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_30_243_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_15_243_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_241_15_243_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_239_15_243_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_237_8_243_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 244 8 ]
+        %tmp.22 = false;
+        ret %tmp.22;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_235_29_245_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 249; @symbol_classdef = [BolusView,249,6,15]; @symbol_extends<0> = [Ui,249,24,26]; @symbol_extends<1> = [View,249,27,31]; ]
+class BolusView extends Ui.View {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 249; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 249; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 251; @symbol_functiondef = [initialize,251,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_251_26_253_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 252 8 ]
+        symbol [ View %tmp.2 252 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 252 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_251_26_253_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 255; @symbol_functiondef = [onLayout,255,13,21]; @symbol_param<0> = [dc,255,22,24]; ]
+    function onLayout(dc) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_255_34_257_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 256 8 ]
+        %tmp.1 = self;
+        symbol [ setLayout %tmp.2 256 8 17 ];
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        symbol [ Rez %tmp.4 256 18 21 ];
+        %tmp.4 = getv ? :Rez;
+        symbol [ Layouts %tmp.5 256 22 29 ];
+        %tmp.5 = getv %tmp.4 :Layouts;
+        symbol [ MainLayout %tmp.6 256 30 40 ];
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 256 41 43 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        invoke %tmp.1 %tmp.2(%tmp.8);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_255_34_257_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 261; @symbol_functiondef = [onShow,261,13,19]; ]
+    function onShow() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_261_30_266_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 262 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_8_265_8_if_stmt:
+        symbol [ bolusOpenCustom %tmp.2 262 12 27 ];
+        %tmp.2 = getv ? :bolusOpenCustom;
+        %tmp.3 = true;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_8_265_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_8_265_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_38_265_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 263 12 ]
+        %tmp.5 = false;
+        symbol [ bolusOpenCustom ? 263 12 27 ];
+        putv self :bolusOpenCustom %tmp.5;
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 264 12 ]
+        symbol [ WatchUi %tmp.7 264 12 19 ];
+        %tmp.7 = getv ? :WatchUi;
+        symbol [ pushView %tmp.8 264 20 28 ];
+        %tmp.8 = getv function %tmp.7 :pushView;
+        symbol [ BolusCustomPickerView %tmp.12 264 33 54 ];
+        %tmp.12 = getv ? :BolusCustomPickerView;
+        %tmp.9 = newc %tmp.12 ();
+        symbol [ BolusCustomPickerDelegate %tmp.16 264 62 87 ];
+        %tmp.16 = getv ? :BolusCustomPickerDelegate;
+        %tmp.13 = newc %tmp.16 ();
+        symbol [ WatchUi %tmp.18 264 91 98 ];
+        %tmp.18 = getv ? :WatchUi;
+        symbol [ SLIDE_LEFT %tmp.19 264 99 109 ];
+        %tmp.19 = getv %tmp.18 :SLIDE_LEFT;
+        invoke %tmp.7 %tmp.8(%tmp.9, %tmp.13, %tmp.19);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_38_265_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_8_265_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_262_8_265_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_261_30_266_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 268; @symbol_functiondef = [onUpdate,268,13,21]; @symbol_param<0> = [dc,268,22,24]; ]
+    function onUpdate(dc) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 269 8 ]
+        symbol [ View %tmp.2 269 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ onUpdate %tmp.3 269 13 21 ];
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 269 22 24 ];
+        invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 271 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_stop" ]
+        %addPadding.1 = local;
+        symbol [ addPadding %addPadding.1 271 12 22 ];
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_begin:
+        %tmp.5 = lgetv %dc;
+        symbol [ dc %tmp.5 271 25 27 ];
+        symbol [ getWidth %tmp.6 271 28 36 ];
+        %tmp.6 = getv function %tmp.5 :getWidth;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = 360;
+        %tmp.9 = gte %tmp.7 %tmp.8;
+        bf %tmp.9 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_true:
+        %tmp.10 = 10;
+        push %tmp.10;
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_false:
+        %tmp.11 = 0;
+        push %tmp.11;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_end:
+        %tmp.12 = phi [%tmp.9 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_begin] [%tmp.10 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_true] [%tmp.11 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_false] [%tmp.12 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_271_25_271_53_end];
+        lputv %addPadding.1 %tmp.12;
+        symbol [ addPadding %addPadding.1 271 12 22 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 273 8 ]
+        %tmp.13 = lgetv %dc;
+        symbol [ dc %tmp.13 273 8 10 ];
+        symbol [ setColor %tmp.14 273 11 19 ];
+        %tmp.14 = getv function %tmp.13 :setColor;
+        symbol [ bolusCircle %tmp.16 273 20 31 ];
+        %tmp.16 = getv ? :bolusCircle;
+        symbol [ bolusCircle %tmp.18 273 33 44 ];
+        %tmp.18 = getv ? :bolusCircle;
+        invoke %tmp.13 %tmp.14(%tmp.16, %tmp.18);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 274 8 ]
+        %tmp.19 = lgetv %dc;
+        symbol [ dc %tmp.19 274 8 10 ];
+        symbol [ fillCircle %tmp.20 274 11 21 ];
+        %tmp.20 = getv function %tmp.19 :fillCircle;
+        %tmp.21 = lgetv %dc;
+        symbol [ dc %tmp.21 274 22 24 ];
+        symbol [ getWidth %tmp.22 274 25 33 ];
+        %tmp.22 = getv function %tmp.21 :getWidth;
+        %tmp.23 = invoke %tmp.21 %tmp.22();
+        %tmp.24 = 0.5;
+        %tmp.25 = mul %tmp.23 %tmp.24;
+        %tmp.26 = lgetv %dc;
+        symbol [ dc %tmp.26 274 43 45 ];
+        symbol [ getHeight %tmp.27 274 46 55 ];
+        %tmp.27 = getv function %tmp.26 :getHeight;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        %tmp.29 = 0.5;
+        %tmp.30 = mul %tmp.28 %tmp.29;
+        %tmp.31 = lgetv %dc;
+        symbol [ dc %tmp.31 274 65 67 ];
+        symbol [ getHeight %tmp.32 274 68 77 ];
+        %tmp.32 = getv function %tmp.31 :getHeight;
+        %tmp.33 = invoke %tmp.31 %tmp.32();
+        %tmp.34 = 0.5;
+        %tmp.35 = mul %tmp.33 %tmp.34;
+        invoke %tmp.19 %tmp.20(%tmp.25, %tmp.30, %tmp.35);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 275 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_stmt:
+        symbol [ bolusErrorCircle %tmp.37 275 12 28 ];
+        %tmp.37 = getv ? :bolusErrorCircle;
+        %tmp.38 = false;
+        %tmp.39 = eq %tmp.37 %tmp.38;
+        bf %tmp.39 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_else_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_40_277_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 276 12 ]
+        %tmp.40 = lgetv %dc;
+        symbol [ dc %tmp.40 276 12 14 ];
+        symbol [ setColor %tmp.41 276 15 23 ];
+        %tmp.41 = getv function %tmp.40 :setColor;
+        symbol [ Gfx %tmp.42 276 24 27 ];
+        %tmp.42 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.43 276 28 39 ];
+        %tmp.43 = getv %tmp.42 :COLOR_BLACK;
+        symbol [ Gfx %tmp.44 276 41 44 ];
+        %tmp.44 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.45 276 45 56 ];
+        %tmp.45 = getv %tmp.44 :COLOR_BLACK;
+        invoke %tmp.40 %tmp.41(%tmp.43, %tmp.45);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_40_277_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_else_false:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_277_15_280_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 278 12 ]
+        %tmp.46 = lgetv %dc;
+        symbol [ dc %tmp.46 278 12 14 ];
+        symbol [ setColor %tmp.47 278 15 23 ];
+        %tmp.47 = getv function %tmp.46 :setColor;
+        symbol [ Gfx %tmp.48 278 24 27 ];
+        %tmp.48 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_RED %tmp.49 278 28 40 ];
+        %tmp.49 = getv %tmp.48 :COLOR_DK_RED;
+        symbol [ Gfx %tmp.50 278 42 45 ];
+        %tmp.50 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.51 278 46 57 ];
+        %tmp.51 = getv %tmp.50 :COLOR_BLACK;
+        invoke %tmp.46 %tmp.47(%tmp.49, %tmp.51);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 279 12 ]
+        %tmp.52 = false;
+        symbol [ bolusErrorCircle ? 279 12 28 ];
+        putv self :bolusErrorCircle %tmp.52;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_277_15_280_8_stop:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_275_8_280_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 281 8 ]
+        %tmp.53 = lgetv %dc;
+        symbol [ dc %tmp.53 281 8 10 ];
+        symbol [ fillCircle %tmp.54 281 11 21 ];
+        %tmp.54 = getv function %tmp.53 :fillCircle;
+        %tmp.55 = lgetv %dc;
+        symbol [ dc %tmp.55 281 22 24 ];
+        symbol [ getWidth %tmp.56 281 25 33 ];
+        %tmp.56 = getv function %tmp.55 :getWidth;
+        %tmp.57 = invoke %tmp.55 %tmp.56();
+        %tmp.58 = 0.5;
+        %tmp.59 = mul %tmp.57 %tmp.58;
+        %tmp.60 = lgetv %dc;
+        symbol [ dc %tmp.60 281 43 45 ];
+        symbol [ getHeight %tmp.61 281 46 55 ];
+        %tmp.61 = getv function %tmp.60 :getHeight;
+        %tmp.62 = invoke %tmp.60 %tmp.61();
+        %tmp.63 = 0.5;
+        %tmp.64 = mul %tmp.62 %tmp.63;
+        %tmp.65 = lgetv %dc;
+        symbol [ dc %tmp.65 281 65 67 ];
+        symbol [ getHeight %tmp.66 281 68 77 ];
+        %tmp.66 = getv function %tmp.65 :getHeight;
+        %tmp.67 = invoke %tmp.65 %tmp.66();
+        %tmp.68 = 0.5;
+        %tmp.69 = mul %tmp.67 %tmp.68;
+        %tmp.70 = 5;
+        %tmp.71 = sub %tmp.69 %tmp.70;
+        invoke %tmp.53 %tmp.54(%tmp.59, %tmp.64, %tmp.71);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 284 8 ]
+        %tmp.72 = lgetv %dc;
+        symbol [ dc %tmp.72 284 8 10 ];
+        symbol [ setColor %tmp.73 284 11 19 ];
+        %tmp.73 = getv function %tmp.72 :setColor;
+        symbol [ Gfx %tmp.74 284 20 23 ];
+        %tmp.74 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.75 284 24 35 ];
+        %tmp.75 = getv %tmp.74 :COLOR_WHITE;
+        symbol [ Gfx %tmp.76 284 37 40 ];
+        %tmp.76 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.77 284 41 58 ];
+        %tmp.77 = getv %tmp.76 :COLOR_TRANSPARENT;
+        invoke %tmp.72 %tmp.73(%tmp.75, %tmp.77);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 285 8 ]
+        %tmp.78 = lgetv %dc;
+        symbol [ dc %tmp.78 285 8 10 ];
+        symbol [ drawText %tmp.79 285 11 19 ];
+        %tmp.79 = getv function %tmp.78 :drawText;
+        %tmp.80 = lgetv %dc;
+        symbol [ dc %tmp.80 286 16 18 ];
+        symbol [ getWidth %tmp.81 286 19 27 ];
+        %tmp.81 = getv function %tmp.80 :getWidth;
+        %tmp.82 = invoke %tmp.80 %tmp.81();
+        %tmp.83 = 0.5;
+        %tmp.84 = mul %tmp.82 %tmp.83;
+        %tmp.85 = lgetv %dc;
+        symbol [ dc %tmp.85 287 16 18 ];
+        symbol [ getHeight %tmp.86 287 19 28 ];
+        %tmp.86 = getv function %tmp.85 :getHeight;
+        %tmp.87 = invoke %tmp.85 %tmp.86();
+        %tmp.88 = 0.5;
+        %tmp.89 = mul %tmp.87 %tmp.88;
+        %tmp.90 = 10;
+        %tmp.91 = add %tmp.89 %tmp.90;
+        %tmp.92 = lgetv %dc;
+        symbol [ dc %tmp.92 287 44 46 ];
+        symbol [ getFontHeight %tmp.93 287 47 60 ];
+        %tmp.93 = getv function %tmp.92 :getFontHeight;
+        symbol [ Gfx %tmp.94 287 61 64 ];
+        %tmp.94 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.95 287 65 75 ];
+        %tmp.95 = getv %tmp.94 :FONT_LARGE;
+        %tmp.96 = invoke %tmp.92 %tmp.93(%tmp.95);
+        %tmp.97 = 0.5;
+        %tmp.98 = mul %tmp.96 %tmp.97;
+        %tmp.99 = sub %tmp.91 %tmp.98;
+        %tmp.100 = 40;
+        %tmp.101 = sub %tmp.99 %tmp.100;
+        %tmp.102 = 5;
+        %tmp.103 = sub %tmp.101 %tmp.102;
+        %tmp.104 = lgetv %dc;
+        symbol [ dc %tmp.104 287 94 96 ];
+        symbol [ getFontHeight %tmp.105 287 97 110 ];
+        %tmp.105 = getv function %tmp.104 :getFontHeight;
+        symbol [ Gfx %tmp.106 287 111 114 ];
+        %tmp.106 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.107 287 115 125 ];
+        %tmp.107 = getv %tmp.106 :FONT_LARGE;
+        %tmp.108 = invoke %tmp.104 %tmp.105(%tmp.107);
+        %tmp.109 = sub %tmp.103 %tmp.108;
+        %tmp.110 = 5;
+        %tmp.111 = sub %tmp.109 %tmp.110;
+        %tmp.112 = lgetv %addPadding.1;
+        symbol [ addPadding %tmp.112 287 133 143 ];
+        %tmp.113 = sub %tmp.111 %tmp.112;
+        symbol [ Gfx %tmp.114 288 16 19 ];
+        %tmp.114 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.115 288 20 30 ];
+        %tmp.115 = getv %tmp.114 :FONT_LARGE;
+        %tmp.116 = "Bolus";
+        symbol [ Gfx %tmp.117 290 16 19 ];
+        %tmp.117 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.118 290 20 39 ];
+        %tmp.118 = getv %tmp.117 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.78 %tmp.79(%tmp.84, %tmp.113, %tmp.115, %tmp.116, %tmp.118);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 293 8 ]
+        %tmp.119 = lgetv %dc;
+        symbol [ dc %tmp.119 293 8 10 ];
+        symbol [ drawBitmap %tmp.120 293 11 21 ];
+        %tmp.120 = getv function %tmp.119 :drawBitmap;
+        %tmp.121 = lgetv %dc;
+        symbol [ dc %tmp.121 294 12 14 ];
+        symbol [ getWidth %tmp.122 294 15 23 ];
+        %tmp.122 = getv function %tmp.121 :getWidth;
+        %tmp.123 = invoke %tmp.121 %tmp.122();
+        %tmp.124 = 0.5;
+        %tmp.125 = mul %tmp.123 %tmp.124;
+        %tmp.126 = 20;
+        %tmp.127 = sub %tmp.125 %tmp.126;
+        %tmp.128 = lgetv %dc;
+        symbol [ dc %tmp.128 295 12 14 ];
+        symbol [ getHeight %tmp.129 295 15 24 ];
+        %tmp.129 = getv function %tmp.128 :getHeight;
+        %tmp.130 = invoke %tmp.128 %tmp.129();
+        %tmp.131 = 0.5;
+        %tmp.132 = mul %tmp.130 %tmp.131;
+        %tmp.133 = 10;
+        %tmp.134 = add %tmp.132 %tmp.133;
+        %tmp.135 = lgetv %dc;
+        symbol [ dc %tmp.135 295 40 42 ];
+        symbol [ getFontHeight %tmp.136 295 43 56 ];
+        %tmp.136 = getv function %tmp.135 :getFontHeight;
+        symbol [ Gfx %tmp.137 295 57 60 ];
+        %tmp.137 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.138 295 61 71 ];
+        %tmp.138 = getv %tmp.137 :FONT_LARGE;
+        %tmp.139 = invoke %tmp.135 %tmp.136(%tmp.138);
+        %tmp.140 = 0.5;
+        %tmp.141 = mul %tmp.139 %tmp.140;
+        %tmp.142 = sub %tmp.134 %tmp.141;
+        %tmp.143 = 40;
+        %tmp.144 = sub %tmp.142 %tmp.143;
+        %tmp.145 = 5;
+        %tmp.146 = sub %tmp.144 %tmp.145;
+        %tmp.147 = lgetv %addPadding.1;
+        symbol [ addPadding %tmp.147 295 90 100 ];
+        %tmp.148 = sub %tmp.146 %tmp.147;
+        symbol [ Ui %tmp.149 296 12 14 ];
+        %tmp.149 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.150 296 15 27 ];
+        %tmp.150 = getv function %tmp.149 :loadResource;
+        symbol [ Rez %tmp.152 296 28 31 ];
+        %tmp.152 = getv ? :Rez;
+        symbol [ Drawables %tmp.153 296 32 41 ];
+        %tmp.153 = getv %tmp.152 :Drawables;
+        symbol [ BolusIcon %tmp.154 296 42 51 ];
+        %tmp.154 = getv %tmp.153 :BolusIcon;
+        %tmp.155 = invoke %tmp.149 %tmp.150(%tmp.154);
+        invoke %tmp.119 %tmp.120(%tmp.127, %tmp.148, %tmp.155);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 299 8 ]
+        %tmp.156 = lgetv %dc;
+        symbol [ dc %tmp.156 299 8 10 ];
+        symbol [ drawText %tmp.157 299 11 19 ];
+        %tmp.157 = getv function %tmp.156 :drawText;
+        %tmp.158 = lgetv %dc;
+        symbol [ dc %tmp.158 300 16 18 ];
+        symbol [ getWidth %tmp.159 300 19 27 ];
+        %tmp.159 = getv function %tmp.158 :getWidth;
+        %tmp.160 = invoke %tmp.158 %tmp.159();
+        %tmp.161 = 0.5;
+        %tmp.162 = mul %tmp.160 %tmp.161;
+        %tmp.163 = lgetv %dc;
+        symbol [ dc %tmp.163 301 16 18 ];
+        symbol [ getHeight %tmp.164 301 19 28 ];
+        %tmp.164 = getv function %tmp.163 :getHeight;
+        %tmp.165 = invoke %tmp.163 %tmp.164();
+        %tmp.166 = 0.5;
+        %tmp.167 = mul %tmp.165 %tmp.166;
+        %tmp.168 = 10;
+        %tmp.169 = add %tmp.167 %tmp.168;
+        %tmp.170 = 5;
+        %tmp.171 = add %tmp.169 %tmp.170;
+        symbol [ Gfx %tmp.172 302 16 19 ];
+        %tmp.172 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.173 302 20 30 ];
+        %tmp.173 = getv %tmp.172 :FONT_LARGE;
+        symbol [ bolusValue %tmp.175 303 16 26 ];
+        %tmp.175 = getv ? :bolusValue;
+        symbol [ format %tmp.176 303 27 33 ];
+        %tmp.176 = getv function %tmp.175 :format;
+        %tmp.177 = "%.1f";
+        %tmp.178 = invoke %tmp.175 %tmp.176(%tmp.177);
+        %tmp.179 = " U";
+        %tmp.180 = add %tmp.178 %tmp.179;
+        symbol [ Gfx %tmp.181 304 16 19 ];
+        %tmp.181 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.182 304 20 39 ];
+        %tmp.182 = getv %tmp.181 :TEXT_JUSTIFY_CENTER;
+        symbol [ Gfx %tmp.183 304 42 45 ];
+        %tmp.183 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_VCENTER %tmp.184 304 46 66 ];
+        %tmp.184 = getv %tmp.183 :TEXT_JUSTIFY_VCENTER;
+        %tmp.185 = bitor %tmp.182 %tmp.184;
+        invoke %tmp.156 %tmp.157(%tmp.162, %tmp.171, %tmp.173, %tmp.180, %tmp.185);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 307 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_stop" ]
+        %fontSize.2 = local;
+        symbol [ fontSize %fontSize.2 307 12 20 ];
+        symbol [ Gfx %tmp.186 307 23 26 ];
+        %tmp.186 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.187 307 27 36 ];
+        %tmp.187 = getv %tmp.186 :FONT_TINY;
+        lputv %fontSize.2 %tmp.187;
+        symbol [ fontSize %fontSize.2 307 12 20 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 308 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_stop" ]
+        %anweisung.3 = local;
+        symbol [ anweisung %anweisung.3 308 12 21 ];
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_begin:
+        symbol [ bolusValue %tmp.189 308 25 35 ];
+        %tmp.189 = getv ? :bolusValue;
+        %tmp.190 = 0.0;
+        %tmp.191 = eq %tmp.189 %tmp.190;
+        bf %tmp.191 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_true:
+        %tmp.192 = "Click SELECT to start!";
+        push %tmp.192;
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_false:
+        %tmp.193 = "Push it to\nAAPS?";
+        push %tmp.193;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_end:
+        %tmp.194 = phi [%tmp.191 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_begin] [%tmp.192 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_true] [%tmp.193 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_false] [%tmp.194 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_308_24_308_73_end];
+        lputv %anweisung.3 %tmp.194;
+        symbol [ anweisung %anweisung.3 308 12 21 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 309 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_8_312_8_if_stmt:
+        symbol [ bolusError %tmp.196 309 12 22 ];
+        %tmp.196 = getv ? :bolusError;
+        %tmp.197 = null;
+        %tmp.198 = ne %tmp.196 %tmp.197;
+        bf %tmp.198 @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_8_312_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_8_312_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_33_312_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 310 12 ]
+        symbol [ bolusError %tmp.200 310 24 34 ];
+        %tmp.200 = getv ? :bolusError;
+        %tmp.201 = as %tmp.200 { (!Null) };
+        lputv %anweisung.3 %tmp.201;
+        symbol [ anweisung %anweisung.3 310 12 21 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 311 12 ]
+        %tmp.202 = null;
+        symbol [ bolusError ? 311 12 22 ];
+        putv self :bolusError %tmp.202;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_33_312_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_8_312_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_309_8_312_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 313 8 ]
+        %tmp.203 = lgetv %dc;
+        symbol [ dc %tmp.203 313 8 10 ];
+        symbol [ drawText %tmp.204 313 11 19 ];
+        %tmp.204 = getv function %tmp.203 :drawText;
+        %tmp.205 = lgetv %dc;
+        symbol [ dc %tmp.205 314 16 18 ];
+        symbol [ getWidth %tmp.206 314 19 27 ];
+        %tmp.206 = getv function %tmp.205 :getWidth;
+        %tmp.207 = invoke %tmp.205 %tmp.206();
+        %tmp.208 = 0.5;
+        %tmp.209 = mul %tmp.207 %tmp.208;
+        %tmp.210 = lgetv %dc;
+        symbol [ dc %tmp.210 315 16 18 ];
+        symbol [ getHeight %tmp.211 315 19 28 ];
+        %tmp.211 = getv function %tmp.210 :getHeight;
+        %tmp.212 = invoke %tmp.210 %tmp.211();
+        %tmp.213 = 0.5;
+        %tmp.214 = mul %tmp.212 %tmp.213;
+        %tmp.215 = 10;
+        %tmp.216 = add %tmp.214 %tmp.215;
+        %tmp.217 = lgetv %dc;
+        symbol [ dc %tmp.217 315 44 46 ];
+        symbol [ getFontHeight %tmp.218 315 47 60 ];
+        %tmp.218 = getv function %tmp.217 :getFontHeight;
+        symbol [ Gfx %tmp.219 315 61 64 ];
+        %tmp.219 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.220 315 65 75 ];
+        %tmp.220 = getv %tmp.219 :FONT_LARGE;
+        %tmp.221 = invoke %tmp.217 %tmp.218(%tmp.220);
+        %tmp.222 = 0.5;
+        %tmp.223 = mul %tmp.221 %tmp.222;
+        %tmp.224 = add %tmp.216 %tmp.223;
+        %tmp.225 = 10;
+        %tmp.226 = add %tmp.224 %tmp.225;
+        %tmp.227 = lgetv %fontSize.2;
+        symbol [ fontSize %tmp.227 316 16 24 ];
+        %tmp.228 = lgetv %anweisung.3;
+        symbol [ anweisung %tmp.228 317 16 25 ];
+        symbol [ Gfx %tmp.229 318 16 19 ];
+        %tmp.229 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.230 318 20 39 ];
+        %tmp.230 = getv %tmp.229 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.203 %tmp.204(%tmp.209, %tmp.226, %tmp.227, %tmp.228, %tmp.230);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_BolusView_mc_268_34_321_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 323; @symbol_functiondef = [onHide,323,13,19]; ]
+    function onHide() as Void {
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc"; @line = 1; ]
+<init> {
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/BolusView.mc" 10 4 ]
+    symbol [ Gfx %tmp.1 10 18 21 ];
+    %tmp.1 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLACK %tmp.2 10 22 33 ];
+    %tmp.2 = getv %tmp.1 :COLOR_BLACK;
+    putv self :bolusCircle %tmp.2;
+}

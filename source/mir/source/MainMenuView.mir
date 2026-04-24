@@ -1,0 +1,485 @@
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Graphics,1,13,21]; @symbol_usingAlias = [Gfx,1,25,28]; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [WatchUi,2,13,20]; @symbol_usingAlias = [Ui,2,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; @symbol_usingAlias = [Sys,3,23,26]; ]
+using Toybox.System as :Sys;
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 5; @symbol_classdef = [MainMenuView,5,6,18]; @symbol_extends<0> = [Ui,5,27,29]; @symbol_extends<1> = [View,5,30,34]; ]
+class MainMenuView extends Ui.View {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 7; @symbol_functiondef = [initialize,7,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_7_26_9_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 8 8 ]
+        symbol [ View %tmp.2 8 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 8 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_7_26_9_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 11; @symbol_functiondef = [onLayout,11,13,21]; @symbol_param<0> = [dc,11,22,24]; ]
+    function onLayout(dc) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_11_34_13_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 12 8 ]
+        %tmp.1 = self;
+        symbol [ setLayout %tmp.2 12 8 17 ];
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        symbol [ Rez %tmp.4 12 18 21 ];
+        %tmp.4 = getv ? :Rez;
+        symbol [ Layouts %tmp.5 12 22 29 ];
+        %tmp.5 = getv %tmp.4 :Layouts;
+        symbol [ MainLayout %tmp.6 12 30 40 ];
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 12 41 43 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        invoke %tmp.1 %tmp.2(%tmp.8);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_11_34_13_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 15; @symbol_functiondef = [onShow,15,13,19]; ]
+    function onShow() as Void {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 18; @symbol_functiondef = [onUpdate,18,13,21]; @symbol_param<0> = [dc,18,22,24]; ]
+    function onUpdate(dc) as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 19 8 ]
+        symbol [ View %tmp.2 19 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ onUpdate %tmp.3 19 13 21 ];
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 19 22 24 ];
+        invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 21 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_stop" ]
+        %cx.1 = local;
+        symbol [ cx %cx.1 21 12 14 ];
+        %tmp.5 = lgetv %dc;
+        symbol [ dc %tmp.5 21 17 19 ];
+        symbol [ getWidth %tmp.6 21 20 28 ];
+        %tmp.6 = getv function %tmp.5 :getWidth;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = 0.5;
+        %tmp.9 = mul %tmp.7 %tmp.8;
+        lputv %cx.1 %tmp.9;
+        symbol [ cx %cx.1 21 12 14 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 22 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_stop" ]
+        %cy.2 = local;
+        symbol [ cy %cy.2 22 12 14 ];
+        %tmp.10 = lgetv %dc;
+        symbol [ dc %tmp.10 22 17 19 ];
+        symbol [ getHeight %tmp.11 22 20 29 ];
+        %tmp.11 = getv function %tmp.10 :getHeight;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        %tmp.13 = 0.5;
+        %tmp.14 = mul %tmp.12 %tmp.13;
+        lputv %cy.2 %tmp.14;
+        symbol [ cy %cy.2 22 12 14 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 25 8 ]
+        %tmp.15 = lgetv %dc;
+        symbol [ dc %tmp.15 25 8 10 ];
+        symbol [ setColor %tmp.16 25 11 19 ];
+        %tmp.16 = getv function %tmp.15 :setColor;
+        symbol [ Gfx %tmp.17 25 20 23 ];
+        %tmp.17 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.18 25 24 35 ];
+        %tmp.18 = getv %tmp.17 :COLOR_BLACK;
+        symbol [ Gfx %tmp.19 25 37 40 ];
+        %tmp.19 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.20 25 41 52 ];
+        %tmp.20 = getv %tmp.19 :COLOR_BLACK;
+        invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 26 8 ]
+        %tmp.21 = lgetv %dc;
+        symbol [ dc %tmp.21 26 8 10 ];
+        symbol [ clear %tmp.22 26 11 16 ];
+        %tmp.22 = getv function %tmp.21 :clear;
+        invoke %tmp.21 %tmp.22();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 29 8 ]
+        %tmp.23 = lgetv %dc;
+        symbol [ dc %tmp.23 29 8 10 ];
+        symbol [ setColor %tmp.24 29 11 19 ];
+        %tmp.24 = getv function %tmp.23 :setColor;
+        symbol [ Gfx %tmp.25 29 20 23 ];
+        %tmp.25 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.26 29 24 35 ];
+        %tmp.26 = getv %tmp.25 :COLOR_WHITE;
+        symbol [ Gfx %tmp.27 29 37 40 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.28 29 41 58 ];
+        %tmp.28 = getv %tmp.27 :COLOR_TRANSPARENT;
+        invoke %tmp.23 %tmp.24(%tmp.26, %tmp.28);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 30 8 ]
+        %tmp.29 = lgetv %dc;
+        symbol [ dc %tmp.29 30 8 10 ];
+        symbol [ drawText %tmp.30 30 11 19 ];
+        %tmp.30 = getv function %tmp.29 :drawText;
+        %tmp.31 = lgetv %cx.1;
+        symbol [ cx %tmp.31 31 12 14 ];
+        %tmp.32 = lgetv %cy.2;
+        symbol [ cy %tmp.32 32 12 14 ];
+        %tmp.33 = lgetv %dc;
+        symbol [ dc %tmp.33 32 17 19 ];
+        symbol [ getFontHeight %tmp.34 32 20 33 ];
+        %tmp.34 = getv function %tmp.33 :getFontHeight;
+        symbol [ Gfx %tmp.35 32 34 37 ];
+        %tmp.35 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.36 32 38 48 ];
+        %tmp.36 = getv %tmp.35 :FONT_LARGE;
+        %tmp.37 = invoke %tmp.33 %tmp.34(%tmp.36);
+        %tmp.38 = sub %tmp.32 %tmp.37;
+        %tmp.39 = 10;
+        %tmp.40 = sub %tmp.38 %tmp.39;
+        symbol [ Gfx %tmp.41 33 12 15 ];
+        %tmp.41 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.42 33 16 26 ];
+        %tmp.42 = getv %tmp.41 :FONT_LARGE;
+        %tmp.43 = "AAPS";
+        symbol [ Gfx %tmp.44 35 12 15 ];
+        %tmp.44 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.45 35 16 35 ];
+        %tmp.45 = getv %tmp.44 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.29 %tmp.30(%tmp.31, %tmp.40, %tmp.42, %tmp.43, %tmp.45);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 39 8 ]
+        %tmp.46 = lgetv %dc;
+        symbol [ dc %tmp.46 39 8 10 ];
+        symbol [ setColor %tmp.47 39 11 19 ];
+        %tmp.47 = getv function %tmp.46 :setColor;
+        symbol [ Gfx %tmp.48 39 20 23 ];
+        %tmp.48 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.49 39 24 37 ];
+        %tmp.49 = getv %tmp.48 :COLOR_LT_GRAY;
+        symbol [ Gfx %tmp.50 39 39 42 ];
+        %tmp.50 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.51 39 43 60 ];
+        %tmp.51 = getv %tmp.50 :COLOR_TRANSPARENT;
+        invoke %tmp.46 %tmp.47(%tmp.49, %tmp.51);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 40 8 ]
+        %tmp.52 = lgetv %dc;
+        symbol [ dc %tmp.52 40 8 10 ];
+        symbol [ drawText %tmp.53 40 11 19 ];
+        %tmp.53 = getv function %tmp.52 :drawText;
+        %tmp.54 = lgetv %cx.1;
+        symbol [ cx %tmp.54 41 12 14 ];
+        %tmp.55 = lgetv %cy.2;
+        symbol [ cy %tmp.55 42 12 14 ];
+        %tmp.56 = 10;
+        %tmp.57 = add %tmp.55 %tmp.56;
+        symbol [ Gfx %tmp.58 43 12 15 ];
+        %tmp.58 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.59 43 16 26 ];
+        %tmp.59 = getv %tmp.58 :FONT_SMALL;
+        %tmp.60 = "Press SELECT";
+        symbol [ Gfx %tmp.61 45 12 15 ];
+        %tmp.61 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.62 45 16 35 ];
+        %tmp.62 = getv %tmp.61 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.52 %tmp.53(%tmp.54, %tmp.57, %tmp.59, %tmp.60, %tmp.62);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 47 8 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 47 8 10 ];
+        symbol [ drawText %tmp.64 47 11 19 ];
+        %tmp.64 = getv function %tmp.63 :drawText;
+        %tmp.65 = lgetv %cx.1;
+        symbol [ cx %tmp.65 48 12 14 ];
+        %tmp.66 = lgetv %cy.2;
+        symbol [ cy %tmp.66 49 12 14 ];
+        %tmp.67 = 10;
+        %tmp.68 = add %tmp.66 %tmp.67;
+        %tmp.69 = lgetv %dc;
+        symbol [ dc %tmp.69 49 22 24 ];
+        symbol [ getFontHeight %tmp.70 49 25 38 ];
+        %tmp.70 = getv function %tmp.69 :getFontHeight;
+        symbol [ Gfx %tmp.71 49 39 42 ];
+        %tmp.71 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.72 49 43 53 ];
+        %tmp.72 = getv %tmp.71 :FONT_SMALL;
+        %tmp.73 = invoke %tmp.69 %tmp.70(%tmp.72);
+        %tmp.74 = add %tmp.68 %tmp.73;
+        %tmp.75 = 2;
+        %tmp.76 = add %tmp.74 %tmp.75;
+        symbol [ Gfx %tmp.77 50 12 15 ];
+        %tmp.77 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.78 50 16 26 ];
+        %tmp.78 = getv %tmp.77 :FONT_SMALL;
+        %tmp.79 = "to choose action";
+        symbol [ Gfx %tmp.80 52 12 15 ];
+        %tmp.80 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.81 52 16 35 ];
+        %tmp.81 = getv %tmp.80 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.63 %tmp.64(%tmp.65, %tmp.76, %tmp.78, %tmp.79, %tmp.81);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_18_34_54_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 56; @symbol_functiondef = [onHide,56,13,19]; ]
+    function onHide() as Void {
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 61; @symbol_classdef = [MainMenuDelegate,61,6,22]; @symbol_extends<0> = [Ui,61,31,33]; @symbol_extends<1> = [BehaviorDelegate,61,34,50]; ]
+class MainMenuDelegate extends Ui.BehaviorDelegate {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 61; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 61; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 63; @symbol_functiondef = [initialize,63,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_63_26_65_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 64 8 ]
+        symbol [ BehaviorDelegate %tmp.2 64 8 24 ];
+        %tmp.2 = getv ? :BehaviorDelegate;
+        symbol [ initialize %tmp.3 64 25 35 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_63_26_65_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 67; @symbol_functiondef = [onKey,67,13,18]; @symbol_param<0> = [keyEvent,67,19,27]; ]
+    function onKey(keyEvent) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_67_29_73_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 68 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_8_71_8_if_stmt:
+        %tmp.1 = lgetv %keyEvent;
+        symbol [ keyEvent %tmp.1 68 12 20 ];
+        symbol [ getKey %tmp.2 68 21 27 ];
+        %tmp.2 = getv function %tmp.1 :getKey;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = 4;
+        %tmp.5 = eq %tmp.3 %tmp.4;
+        bf %tmp.5 @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_8_71_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_8_71_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_37_71_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 69 12 ]
+        %tmp.6 = self;
+        symbol [ showMainMenu %tmp.7 69 12 24 ];
+        %tmp.7 = getv function %tmp.6 :showMainMenu;
+        invoke %tmp.6 %tmp.7();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 70 12 ]
+        %tmp.8 = true;
+        ret %tmp.8;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_37_71_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_8_71_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_68_8_71_8_if_end:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 72 8 ]
+        %tmp.9 = false;
+        ret %tmp.9;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_67_29_73_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 75; @symbol_functiondef = [onHold,75,13,19]; @symbol_param<0> = [touchEvent,75,20,30]; ]
+    function onHold(touchEvent) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_75_32_78_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 76 8 ]
+        %tmp.1 = self;
+        symbol [ showMainMenu %tmp.2 76 8 20 ];
+        %tmp.2 = getv function %tmp.1 :showMainMenu;
+        invoke %tmp.1 %tmp.2();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 77 8 ]
+        %tmp.3 = true;
+        ret %tmp.3;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_75_32_78_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 80; @symbol_functiondef = [onSelect,80,13,21]; ]
+    function onSelect() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_80_24_83_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 81 8 ]
+        %tmp.1 = self;
+        symbol [ showMainMenu %tmp.2 81 8 20 ];
+        %tmp.2 = getv function %tmp.1 :showMainMenu;
+        invoke %tmp.1 %tmp.2();
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 82 8 ]
+        %tmp.3 = true;
+        ret %tmp.3;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_80_24_83_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 85; @symbol_functiondef = [showMainMenu,85,13,25]; ]
+    function showMainMenu() {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_85_28_92_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 86 8 ]
+        [ "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_85_28_92_4_start" "_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_85_28_92_4_stop" ]
+        %menu.1 = local;
+        symbol [ menu %menu.1 86 12 16 ];
+        symbol [ Ui %tmp.3 86 23 25 ];
+        %tmp.3 = getm $.Toybox.WatchUi;
+        symbol [ Menu %tmp.4 86 26 30 ];
+        %tmp.4 = getv function ? %tmp.3 :Menu;
+        %tmp.1 = newc %tmp.4 ();
+        lputv %menu.1 %tmp.1;
+        symbol [ menu %menu.1 86 12 16 ];
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 87 8 ]
+        %tmp.5 = lgetv %menu.1;
+        symbol [ menu %tmp.5 87 8 12 ];
+        symbol [ setTitle %tmp.6 87 13 21 ];
+        %tmp.6 = getv function %tmp.5 :setTitle;
+        %tmp.7 = "AAPS Action";
+        invoke %tmp.5 %tmp.6(%tmp.7);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 88 8 ]
+        %tmp.8 = lgetv %menu.1;
+        symbol [ menu %tmp.8 88 8 12 ];
+        symbol [ addItem %tmp.9 88 13 20 ];
+        %tmp.9 = getv function %tmp.8 :addItem;
+        %tmp.10 = "Bolus";
+        %tmp.12 = const :bolus;
+        symbol [ bolus %tmp.12 88 31 36 const ];
+        invoke %tmp.8 %tmp.9(%tmp.10, %tmp.12);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 89 8 ]
+        %tmp.13 = lgetv %menu.1;
+        symbol [ menu %tmp.13 89 8 12 ];
+        symbol [ addItem %tmp.14 89 13 20 ];
+        %tmp.14 = getv function %tmp.13 :addItem;
+        %tmp.15 = "Carbs";
+        %tmp.17 = const :carbs;
+        symbol [ carbs %tmp.17 89 31 36 const ];
+        invoke %tmp.13 %tmp.14(%tmp.15, %tmp.17);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 90 8 ]
+        %tmp.18 = lgetv %menu.1;
+        symbol [ menu %tmp.18 90 8 12 ];
+        symbol [ addItem %tmp.19 90 13 20 ];
+        %tmp.19 = getv function %tmp.18 :addItem;
+        %tmp.20 = "TempTarget";
+        %tmp.22 = const :temptarget;
+        symbol [ temptarget %tmp.22 90 36 46 const ];
+        invoke %tmp.18 %tmp.19(%tmp.20, %tmp.22);
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 91 8 ]
+        symbol [ WatchUi %tmp.24 91 8 15 ];
+        %tmp.24 = getv ? :WatchUi;
+        symbol [ pushView %tmp.25 91 16 24 ];
+        %tmp.25 = getv function %tmp.24 :pushView;
+        %tmp.26 = lgetv %menu.1;
+        symbol [ menu %tmp.26 91 25 29 ];
+        symbol [ MainMenuInputDelegate %tmp.30 91 35 56 ];
+        %tmp.30 = getv ? :MainMenuInputDelegate;
+        %tmp.27 = newc %tmp.30 ();
+        symbol [ WatchUi %tmp.32 91 60 67 ];
+        %tmp.32 = getv ? :WatchUi;
+        symbol [ SLIDE_IMMEDIATE %tmp.33 91 68 83 ];
+        %tmp.33 = getv %tmp.32 :SLIDE_IMMEDIATE;
+        invoke %tmp.24 %tmp.25(%tmp.26, %tmp.27, %tmp.33);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_85_28_92_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 96; @symbol_classdef = [MainMenuInputDelegate,96,6,27]; @symbol_extends<0> = [Ui,96,36,38]; @symbol_extends<1> = [MenuInputDelegate,96,39,56]; ]
+class MainMenuInputDelegate extends Ui.MenuInputDelegate {
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 96; ]
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 96; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 98; @symbol_functiondef = [initialize,98,13,23]; ]
+    function initialize() as Void {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_98_26_100_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 99 8 ]
+        symbol [ MenuInputDelegate %tmp.2 99 8 25 ];
+        %tmp.2 = getv ? :MenuInputDelegate;
+        symbol [ initialize %tmp.3 99 26 36 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_98_26_100_4_stop:
+    }
+    [ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 102; @symbol_functiondef = [onMenuItem,102,13,23]; @symbol_param<0> = [item,102,24,28]; ]
+    function onMenuItem(item) {
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_102_30_110_4_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 103 8 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_stmt:
+        %tmp.1 = lgetv %item;
+        symbol [ item %tmp.1 103 12 16 ];
+        %tmp.3 = const :bolus;
+        symbol [ bolus %tmp.3 103 21 26 const ];
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_28_105_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 104 12 ]
+        symbol [ WatchUi %tmp.6 104 12 19 ];
+        %tmp.6 = getv ? :WatchUi;
+        symbol [ pushView %tmp.7 104 20 28 ];
+        %tmp.7 = getv function %tmp.6 :pushView;
+        symbol [ BolusView %tmp.11 104 33 42 ];
+        %tmp.11 = getv ? :BolusView;
+        %tmp.8 = newc %tmp.11 ();
+        symbol [ BolusBehaviorDelegate %tmp.15 104 50 71 ];
+        %tmp.15 = getv ? :BolusBehaviorDelegate;
+        %tmp.12 = newc %tmp.15 ();
+        symbol [ WatchUi %tmp.17 104 75 82 ];
+        %tmp.17 = getv ? :WatchUi;
+        symbol [ SLIDE_LEFT %tmp.18 104 83 93 ];
+        %tmp.18 = getv %tmp.17 :SLIDE_LEFT;
+        invoke %tmp.6 %tmp.7(%tmp.8, %tmp.12, %tmp.18);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_28_105_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 105 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_stmt:
+        %tmp.19 = lgetv %item;
+        symbol [ item %tmp.19 105 19 23 ];
+        %tmp.21 = const :carbs;
+        symbol [ carbs %tmp.21 105 28 33 const ];
+        %tmp.22 = eq %tmp.19 %tmp.21;
+        bf %tmp.22 @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_false;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_35_107_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 106 12 ]
+        symbol [ WatchUi %tmp.24 106 12 19 ];
+        %tmp.24 = getv ? :WatchUi;
+        symbol [ pushView %tmp.25 106 20 28 ];
+        %tmp.25 = getv function %tmp.24 :pushView;
+        symbol [ CarbsView %tmp.29 106 33 42 ];
+        %tmp.29 = getv ? :CarbsView;
+        %tmp.26 = newc %tmp.29 ();
+        symbol [ CarbsBehaviorDelegate %tmp.33 106 50 71 ];
+        %tmp.33 = getv ? :CarbsBehaviorDelegate;
+        %tmp.30 = newc %tmp.33 ();
+        symbol [ WatchUi %tmp.35 106 75 82 ];
+        %tmp.35 = getv ? :WatchUi;
+        symbol [ SLIDE_LEFT %tmp.36 106 83 93 ];
+        %tmp.36 = getv %tmp.35 :SLIDE_LEFT;
+        invoke %tmp.24 %tmp.25(%tmp.26, %tmp.30, %tmp.36);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_35_107_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_false:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 107 15 ]
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_15_109_8_if_stmt:
+        %tmp.37 = lgetv %item;
+        symbol [ item %tmp.37 107 19 23 ];
+        %tmp.39 = const :temptarget;
+        symbol [ temptarget %tmp.39 107 28 38 const ];
+        %tmp.40 = eq %tmp.37 %tmp.39;
+        bf %tmp.40 @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_15_109_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_15_109_8_if_true:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_40_109_8_start:
+[ "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc" 108 12 ]
+        symbol [ WatchUi %tmp.42 108 12 19 ];
+        %tmp.42 = getv ? :WatchUi;
+        symbol [ pushView %tmp.43 108 20 28 ];
+        %tmp.43 = getv function %tmp.42 :pushView;
+        symbol [ TempTargetView %tmp.47 108 33 47 ];
+        %tmp.47 = getv ? :TempTargetView;
+        %tmp.44 = newc %tmp.47 ();
+        symbol [ TempTargetBehaviorDelegate %tmp.51 108 55 81 ];
+        %tmp.51 = getv ? :TempTargetBehaviorDelegate;
+        %tmp.48 = newc %tmp.51 ();
+        symbol [ WatchUi %tmp.53 108 85 92 ];
+        %tmp.53 = getv ? :WatchUi;
+        symbol [ SLIDE_LEFT %tmp.54 108 93 103 ];
+        %tmp.54 = getv %tmp.53 :SLIDE_LEFT;
+        invoke %tmp.42 %tmp.43(%tmp.44, %tmp.48, %tmp.54);
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_40_109_8_stop:
+        goto @_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_15_109_8_if_end;
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_107_15_109_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_105_15_109_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_103_8_109_8_if_end:
+_Users_seamusrobertson_StudioProjects_garminwidget_source_MainMenuView_mc_102_30_110_4_stop:
+    }
+}
+[ @file = "/Users/seamusrobertson/StudioProjects/garminwidget/source/MainMenuView.mc"; @line = 1; ]
+<init> {
+}
