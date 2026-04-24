@@ -6,36 +6,39 @@ using Toybox.Lang;
 
 // =========================================================
 // UNIT CONFIGURATION
-// Uncomment ONE block below; keep the other commented out.
+// Set UNIT_SYSTEM to either "mmol" or "mg"
 // =========================================================
 
-// --- mmol/L ---
-const TT_UNIT_LABEL  = " mmol/l";
-const TT_FIELD_LABEL = "Target (mmol/l)";
-const TT_FORMAT      = "%.1f";
-const TT_ROUND       = 10.0;
-const TT_DEFAULT     = 5.5;
-const TT_MIN         = 2.0;
-const TT_MAX         = 15.0;
-const TT_STEP        = 0.1;
-const TT_P1          = 4.4;
-const TT_P2          = 6.7;
-const TT_P3          = 7.8;
-const TT_P4          = 8.9;
+#define UNIT_SYSTEM "mg"  // Change to "mmol" to switch units
 
-// --- mg/dL --- (uncomment this block and comment out the block above)
-// const TT_UNIT_LABEL  = " mg/dl";
-// const TT_FIELD_LABEL = "Target (mg/dl)";
-// const TT_FORMAT      = "%.0f";
-// const TT_ROUND       = 1.0;
-// const TT_DEFAULT     = 100.0;
-// const TT_MIN         = 36.0;
-// const TT_MAX         = 270.0;
-// const TT_STEP        = 1.0;
-// const TT_P1          = 80.0;
-// const TT_P2          = 120.0;
-// const TT_P3          = 140.0;
-// const TT_P4          = 160.0;
+#if UNIT_SYSTEM.equals("mmol")
+  const TT_UNIT_LABEL  = " mmol/l";
+  const TT_FIELD_LABEL = "Target (mmol/l)";
+  const TT_FORMAT      = "%.1f";
+  const TT_ROUND       = 10.0;
+  const TT_DEFAULT     = 5.5;
+  const TT_MIN         = 2.0;
+  const TT_MAX         = 15.0;
+  const TT_STEP        = 0.1;
+  const TT_P1          = 4.4;
+  const TT_P2          = 6.7;
+  const TT_P3          = 7.8;
+  const TT_P4          = 8.9;
+#else
+  const TT_UNIT_LABEL  = " mg/dl";
+  const TT_FIELD_LABEL = "Target (mg/dl)";
+  const TT_FORMAT      = "%.0f";
+  const TT_ROUND       = 1.0;
+  const TT_DEFAULT     = 100.0;
+  const TT_MIN         = 36.0;
+  const TT_MAX         = 270.0;
+  const TT_STEP        = 1.0;
+  const TT_P1          = 80.0;
+  const TT_P2          = 120.0;
+  const TT_P3          = 140.0;
+  const TT_P4          = 160.0;
+#endif
+
 
 var ttDuration = 0;
 var ttTarget = 0;
