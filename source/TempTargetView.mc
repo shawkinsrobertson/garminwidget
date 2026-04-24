@@ -4,6 +4,25 @@ using Toybox.System as Sys;
 using Toybox.Communications as Comm;
 using Toybox.Lang;
 
+// =========================================================
+// UNIT CONFIGURATION — change USE_MMOL only
+// true  = mmol/L  |  false = mg/dL
+// =========================================================
+const USE_MMOL       = true;
+
+const TT_UNIT_LABEL  = USE_MMOL ? " mmol/l"         : " mg/dl";
+const TT_FIELD_LABEL = USE_MMOL ? "Target (mmol/l)" : "Target (mg/dl)";
+const TT_FORMAT      = USE_MMOL ? "%.1f"            : "%.0f";
+const TT_ROUND       = USE_MMOL ? 10.0              : 1.0;
+const TT_DEFAULT     = USE_MMOL ? 5.5               : 100.0;
+const TT_MIN         = USE_MMOL ? 2.0               : 36.0;
+const TT_MAX         = USE_MMOL ? 15.0              : 270.0;
+const TT_STEP        = USE_MMOL ? 0.1               : 1.0;
+const TT_P1          = USE_MMOL ? 4.4               : 80.0;
+const TT_P2          = USE_MMOL ? 6.7               : 120.0;
+const TT_P3          = USE_MMOL ? 7.8               : 140.0;
+const TT_P4          = USE_MMOL ? 8.9               : 160.0;
+
 var ttDuration = 0;
 var ttTarget = 0;
 var ttError = null;
@@ -13,7 +32,7 @@ var ttCircle = Gfx.COLOR_BLACK;
 var ttErrorCircle = false;
 
 // Custom picker temp values
-var ttCustomTarget = 5.5;  // mmol/l
+var ttCustomTarget = TT_DEFAULT;
 var ttCustomDuration = 60; // minutes
 var ttCustomField = 0;     // 0 = editing target, 1 = editing duration
 var ttOpenCustom = false;
@@ -79,21 +98,21 @@ class TempTargetBehaviorDelegate extends Ui.BehaviorDelegate {
         menu.setTitle("Choose TT");
         menu.addItem("Custom value...", :custom);
         menu.addItem("Cancel TT", :a);
-        // Pre-selected values in mmol/l (80=4.4, 120=6.7, 140=7.8, 160=8.9)
-        menu.addItem("4.4 @ 60m", :b);
-        menu.addItem("4.4 @ 120m", :c);
-        menu.addItem("4.4 @ 180m", :d);
-        menu.addItem("6.7 @ 60m", :e);
-        menu.addItem("6.7 @ 120m", :f);
-        menu.addItem("6.7 @ 180m", :g);
-        menu.addItem("7.8 @ 60m", :h);
-        menu.addItem("7.8 @ 120m", :i);
-        menu.addItem("7.8 @ 180m", :j);
-        menu.addItem("7.8 @ 240m", :k);
-        menu.addItem("8.9 @ 60m", :l);
-        menu.addItem("8.9 @ 120m", :m);
-        menu.addItem("8.9 @ 180m", :n);
-        menu.addItem("8.9 @ 240m", :o);
+        // Pre-selected values — labels derived from TT_P1–TT_P4 and TT_FORMAT (set by USE_MMOL above)
+        menu.addItem(TT_P1.format(TT_FORMAT) + " @ 60m", :b);
+        menu.addItem(TT_P1.format(TT_FORMAT) + " @ 120m", :c);
+        menu.addItem(TT_P1.format(TT_FORMAT) + " @ 180m", :d);
+        menu.addItem(TT_P2.format(TT_FORMAT) + " @ 60m", :e);
+        menu.addItem(TT_P2.format(TT_FORMAT) + " @ 120m", :f);
+        menu.addItem(TT_P2.format(TT_FORMAT) + " @ 180m", :g);
+        menu.addItem(TT_P3.format(TT_FORMAT) + " @ 60m", :h);
+        menu.addItem(TT_P3.format(TT_FORMAT) + " @ 120m", :i);
+        menu.addItem(TT_P3.format(TT_FORMAT) + " @ 180m", :j);
+        menu.addItem(TT_P3.format(TT_FORMAT) + " @ 240m", :k);
+        menu.addItem(TT_P4.format(TT_FORMAT) + " @ 60m", :l);
+        menu.addItem(TT_P4.format(TT_FORMAT) + " @ 120m", :m);
+        menu.addItem(TT_P4.format(TT_FORMAT) + " @ 180m", :n);
+        menu.addItem(TT_P4.format(TT_FORMAT) + " @ 240m", :o);
         WatchUi.pushView(menu, new TTMenuInputDelegate(), WatchUi.SLIDE_IMMEDIATE);
      }
 
@@ -132,7 +151,7 @@ class TTMenuInputDelegate extends Ui.MenuInputDelegate {
 
     function onMenuItem(item) {
         if (item == :custom) {
-            ttCustomTarget = 5.5;
+            ttCustomTarget = TT_DEFAULT;
             ttCustomDuration = 60;
             ttCustomField = 0;
             ttOpenCustom = true;
@@ -142,40 +161,40 @@ class TTMenuInputDelegate extends Ui.MenuInputDelegate {
         if (item == :a) {
             ttTarget = null; ttDuration = 0; ttReason = null;
         } else if (item == :b) {
-            ttTarget = 4.4; ttDuration = 60; ttReason = "Eating Soon";
+            ttTarget = TT_P1; ttDuration = 60; ttReason = "Eating Soon";
         } else if (item == :c) {
-            ttTarget = 4.4; ttDuration = 120; ttReason = "Eating Soon";
+            ttTarget = TT_P1; ttDuration = 120; ttReason = "Eating Soon";
         } else if (item == :d) {
-            ttTarget = 4.4; ttDuration = 180; ttReason = "Eating Soon";
+            ttTarget = TT_P1; ttDuration = 180; ttReason = "Eating Soon";
         } else if (item == :e) {
-            ttTarget = 6.7; ttDuration = 60; ttReason = "Activity";
+            ttTarget = TT_P2; ttDuration = 60; ttReason = "Activity";
         } else if (item == :f) {
-            ttTarget = 6.7; ttDuration = 120; ttReason = "Activity";
+            ttTarget = TT_P2; ttDuration = 120; ttReason = "Activity";
         } else if (item == :g) {
-            ttTarget = 6.7; ttDuration = 180; ttReason = "Activity";
+            ttTarget = TT_P2; ttDuration = 180; ttReason = "Activity";
         } else if (item == :h) {
-            ttTarget = 7.8; ttDuration = 60; ttReason = "Activity";
+            ttTarget = TT_P3; ttDuration = 60; ttReason = "Activity";
         } else if (item == :i) {
-            ttTarget = 7.8; ttDuration = 120; ttReason = "Activity";
+            ttTarget = TT_P3; ttDuration = 120; ttReason = "Activity";
         } else if (item == :j) {
-            ttTarget = 7.8; ttDuration = 180; ttReason = "Activity";
+            ttTarget = TT_P3; ttDuration = 180; ttReason = "Activity";
         } else if (item == :k) {
-            ttTarget = 7.8; ttDuration = 240; ttReason = "Activity";
+            ttTarget = TT_P3; ttDuration = 240; ttReason = "Activity";
         } else if (item == :l) {
-            ttTarget = 8.9; ttDuration = 60; ttReason = "Activity";
+            ttTarget = TT_P4; ttDuration = 60; ttReason = "Activity";
         } else if (item == :m) {
-            ttTarget = 8.9; ttDuration = 120; ttReason = "Activity";
+            ttTarget = TT_P4; ttDuration = 120; ttReason = "Activity";
         } else if (item == :n) {
-            ttTarget = 8.9; ttDuration = 180; ttReason = "Activity";
+            ttTarget = TT_P4; ttDuration = 180; ttReason = "Activity";
         } else if (item == :o) {
-            ttTarget = 8.9; ttDuration = 240; ttReason = "Activity";
+            ttTarget = TT_P4; ttDuration = 240; ttReason = "Activity";
         }
     }
 }
 
 // -----------------------------------------------------------
 // Two-field custom picker
-// Field 0: mmol/l target  (UP = +0.1, DOWN = -0.1)
+// Field 0: target value   (UP = +TT_STEP, DOWN = -TT_STEP)
 // Field 1: duration in min (UP = +5, DOWN = -5)
 // SELECT on field 0 -> moves to field 1
 // SELECT on field 1 -> confirms
@@ -202,13 +221,13 @@ class TTCustomPickerView extends Ui.View {
         dc.drawText(cx, cy - 65, Gfx.FONT_MEDIUM, "+", Gfx.TEXT_JUSTIFY_CENTER);
 
         if( ttCustomField == 0 ) {
-            // Editing target mmol/l
+            // Editing target
             dc.setColor(Gfx.COLOR_LT_GRAY, Gfx.COLOR_TRANSPARENT);
-            dc.drawText(cx, cy - 85, Gfx.FONT_XTINY, "Target (mmol/l)", Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText(cx, cy - 85, Gfx.FONT_XTINY, TT_FIELD_LABEL, Gfx.TEXT_JUSTIFY_CENTER);
 
             // Target value - highlighted
             dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-            dc.drawText(cx, cy - 15, Gfx.FONT_NUMBER_HOT, ttCustomTarget.format("%.1f"), Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
+            dc.drawText(cx, cy - 15, Gfx.FONT_NUMBER_HOT, ttCustomTarget.format(TT_FORMAT), Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
 
             // Duration value - dimmed
             dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
@@ -224,7 +243,7 @@ class TTCustomPickerView extends Ui.View {
 
             // Target value - dimmed
             dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
-            dc.drawText(cx, cy - 30, Gfx.FONT_SMALL, ttCustomTarget.format("%.1f") + " mmol/l", Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText(cx, cy - 30, Gfx.FONT_SMALL, ttCustomTarget.format(TT_FORMAT) + TT_UNIT_LABEL, Gfx.TEXT_JUSTIFY_CENTER);
 
             // Duration value - highlighted
             dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
@@ -251,9 +270,9 @@ class TTCustomPickerDelegate extends Ui.BehaviorDelegate {
     // top-right = UP = increment
     function onPreviousPage() {
         if( ttCustomField == 0 ) {
-            ttCustomTarget = ttCustomTarget + 0.1;
-            ttCustomTarget = ((ttCustomTarget * 10 + 0.5).toNumber()).toFloat() / 10.0;
-            if( ttCustomTarget > 15.0 ) { ttCustomTarget = 15.0; }
+            ttCustomTarget = ttCustomTarget + TT_STEP;
+            ttCustomTarget = ((ttCustomTarget * TT_ROUND + 0.5).toNumber()).toFloat() / TT_ROUND;
+            if( ttCustomTarget > TT_MAX ) { ttCustomTarget = TT_MAX; }
         } else {
             ttCustomDuration = ttCustomDuration + 5;
             if( ttCustomDuration > 480 ) { ttCustomDuration = 480; }
@@ -265,9 +284,9 @@ class TTCustomPickerDelegate extends Ui.BehaviorDelegate {
     // bottom-right = DOWN = decrement
     function onNextPage() {
         if( ttCustomField == 0 ) {
-            ttCustomTarget = ttCustomTarget - 0.1;
-            ttCustomTarget = ((ttCustomTarget * 10 + 0.5).toNumber()).toFloat() / 10.0;
-            if( ttCustomTarget < 2.0 ) { ttCustomTarget = 2.0; }
+            ttCustomTarget = ttCustomTarget - TT_STEP;
+            ttCustomTarget = ((ttCustomTarget * TT_ROUND + 0.5).toNumber()).toFloat() / TT_ROUND;
+            if( ttCustomTarget < TT_MIN ) { ttCustomTarget = TT_MIN; }
         } else {
             ttCustomDuration = ttCustomDuration - 5;
             if( ttCustomDuration < 5 ) { ttCustomDuration = 5; }
@@ -369,7 +388,7 @@ class TempTargetView extends Ui.View {
         if( ttTarget == null ) {
             text = "Cancel TT";
         } else {
-            text = ttTarget.format("%.1f") + " mmol/l";
+            text = ttTarget.format(TT_FORMAT) + TT_UNIT_LABEL;
             text += "\n@ " + ttDuration.toString() + " min";
         }
         var fontSize1 = Gfx.FONT_SMALL;
